@@ -60,11 +60,11 @@ The following steps are only for _one_ of the group members to perform.
 ## LISTING PAGE
 -- our listing  -- add remove feature button
 ## POST ITEM PAGE
---create a posting on the site
+--create a posting on the site    *only ADMINS can create a post
 
 
 // Acess from logged out nav bar
-## MAIN PAGE -- listings
+## MAIN PAGE -- maybe show the featured only, to see the whole listing we need to be a user
 sign up page
 login page
 
@@ -74,7 +74,14 @@ login page
 -- users can send messages to the user that is listing the item
 
 
-questions
+## questions
 when admin logs in, can they post items for every users?
-can any users post items
+
+-- either one admin. or many admins. 
+ 
+ -- admins can post/delete & mark as sold  any listing
+ -- only admins can create/list items
+
+I think we should go many admins, to have many sellers
+
 
