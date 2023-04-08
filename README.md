@@ -69,7 +69,7 @@ sign up page
 login page
 
 
-## LISTING/:ID PAGE
+## LISTING/:ID PAGE       STRETCH
 --specific page for each item
 -- users can send messages to the user that is listing the item
 
