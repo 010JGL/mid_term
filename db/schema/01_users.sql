@@ -31,11 +31,12 @@ CREATE TABLE messages (
   id SERIAL PRIMARY KEY NOT NULL,
   user_id INTEGER REFERENCES users(id),
   shoes_id INTEGER REFERENCES shoes(id),
-  content TEXT NOT NULL
+  content TEXT NOT NULL,
+  date SMALLDATETIME NOT NULL
 )
 
 CREATE TABLE favorites (
   id SERIAL PRIMARY KEY NOT NULL,
   user_id INTEGER REFERENCES users(id),
-  shoes_id INTEGER REFERENCES shoes(id),
+  shoes_id INTEGER REFERENCES shoes(id)
 )
