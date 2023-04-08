@@ -18,25 +18,25 @@ CREATE TABLE shoes (
   id SERIAL PRIMARY KEY NOT NULL,
   gender ENUM('male', 'female'),
   price INTEGER NOT NULL,
-  brand TEXT NOT NULL,
+  brand TEXT,
   size ENUM('5', '6', '7', '8', '9', '10', '11', '12', '13'),
-  seller_id INTEGER REFERENCES admins(id),
+  seller_id INTEGER REFERENCES admins(id) ON DELETE CASCADE,
   image_url VARCHAR(255) NOT NULL,
-  is_sold BOOLEAN NOT NULL,
-  description TEXT NOT NULL
+  is_sold BOOLEAN NOT NULL DEFAULT FALSE,
+  description TEXT
 )
 -- image_url is our thumbnail picture, we only have one for now. We could add more but its stretch
 
 CREATE TABLE messages (
   id SERIAL PRIMARY KEY NOT NULL,
-  user_id INTEGER REFERENCES users(id),
-  shoes_id INTEGER REFERENCES shoes(id),
-  content TEXT NOT NULL,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  shoes_id INTEGER REFERENCES shoes(id) ON DELETE CASCADE,
+  message TEXT,
   date SMALLDATETIME NOT NULL
 )
 
 CREATE TABLE favorites (
   id SERIAL PRIMARY KEY NOT NULL,
-  user_id INTEGER REFERENCES users(id),
-  shoes_id INTEGER REFERENCES shoes(id)
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  shoes_id INTEGER REFERENCES shoes(id) ON DELETE CASCADE
 )
