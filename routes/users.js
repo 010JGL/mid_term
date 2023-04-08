@@ -8,6 +8,8 @@
 const express = require('express');
 const router  = express.Router();
 
+//This was already in the file as an example. It would retreive all users. Not sure if we need to have it for our site.
+
 // router.get('/', (req, res) => {
 //   res.render('users');
 // });
@@ -30,6 +32,14 @@ router.post('/sign_up', (req, res) => {
 
 router.post('/logout', (req, res) => {
   res.render('listings_index');
+});
+
+router.get('/favourites', (req, res) => {
+  res.render('user_favourites');
+});
+
+router.get('/my_listings', (req, res) => {
+  res.render('my_listings');
 });
 
 module.exports = router;

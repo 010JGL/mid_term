@@ -17,13 +17,12 @@ router.post('/new', (req, res) => {
   res.redirect('/:id');
 });
 
-router.get('/my_listings', (req, res) => {
-  res.render('my_listings');
-});
-
 router.get('/:id', (req, res) => {
   res.render('listings_id');
 });
 
+router.post('/favourite', (req, res) => {
+  //redirect to listing or user favourites?
+});
 
 module.exports = router;
