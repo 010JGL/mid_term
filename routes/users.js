@@ -8,8 +8,28 @@
 const express = require('express');
 const router  = express.Router();
 
-router.get('/', (req, res) => {
-  res.render('users');
-}); 
+// router.get('/', (req, res) => {
+//   res.render('users');
+// });
+
+router.get('/login', (req, res) => {
+  res.render('users_login');
+});
+
+router.post('/login', (req, res) => {
+  res.render('listings_index');
+});
+
+router.get('/sign_up', (req, res) => {
+  res.render('users_sign_up');
+});
+
+router.post('/sign_up', (req, res) => {
+  res.render('listings_index');
+});
+
+router.post('/logout', (req, res) => {
+  res.render('listings_index');
+});
 
 module.exports = router;
