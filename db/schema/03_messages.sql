@@ -1,0 +1,13 @@
+DROP TABLE IF EXISTS messages CASCADE;
+
+
+CREATE TABLE messages (
+  id SERIAL PRIMARY KEY NOT NULL,
+  shoe_id INTEGER REFERENCES shoes(id) ON DELETE CASCADE,
+  message TEXT,
+  date TIMESTAMP NOT NULL,
+  sender_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  receiver_id INTEGER REFERENCES users(id) ON DELETE CASCADE
+);
+
+--  We want to use date TIMESTAMP
