@@ -4,21 +4,79 @@
 <head>
   <title>Home Page</title>
 
-  <meta charset="UTF-8" >
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/navbar.css" />
+  <link rel="stylesheet" href="/styles/featured.css" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
 </head>
 
+
 <body>
-  <h1>Have fun! 🥔</h1>
+  <!-- Top of page-->
+  <nav class="navbar">
+    <img src="images/logo.png" class="logo">
+    <div class="left-nav">
+      <a class="home" href="/">Home</a>
+      <a class="listings" href="/">Listings</a>
+      <input type="search" name="q" placeholder="Search for shoes" autocomplete="off" spellcheck="false"
+        autocorrect="off" autocapitalize="off" data-testid="site-search" title="Search..." aria-label="Search..."
+        id="site-search" class="chakra-input css-1hwpd2w" value="">
+      <button class="search" type="submit">Search</button>
+    </div>
+    <div class="right-nav">
+      <button class="login" href="/login">Login</button>
+      <button class="register" href="/register">Register</button>
+    </div>
+  </nav>
+  <!--info on page-->
+  <h1>Featured Shoes</h1>
+  <div class="featured">
+    <div class="shoe-display">
+      <img src="/images/Shoe1.png" class="shoe-image">
+      <p class="shoe-name">Nike Air Force 1</p>
+      <p class="price"> $100</p>
+      <p class="seller"> Listed by: name</p>
+    </div>
+    <div class="shoe-display">
+      <img src="/images/Shoe1.png" class="shoe-image">
+      <p class="shoe-name">Nike Air Force 1</p>
+      <p class="price"> $100</p>
+      <p class="seller"> Listed by: name</p>
+    </div>
+    <div class="shoe-display">
+      <img src="/images/Shoe1.png" class="shoe-image">
+      <p class="shoe-name">Nike Air Force 1</p>
+      <p class="price"> $100</p>
+      <p class="seller"> Listed by: name</p>
+    </div>
+    <div class="shoe-display">
+      <img src="/images/Shoe1.png" class="shoe-image">
+      <p class="shoe-name">Nike Air Force 1</p>
+      <p class="price"> $100</p>
+      <p class="seller"> Listed by: name</p>
+    </div>
+    <div class="shoe-display">
+      <img src="/images/Shoe1.png" class="shoe-image">
+      <p class="shoe-name">Nike Air Force 1</p>
+      <p class="price"> $100</p>
+      <p class="seller"> Listed by: name</p>
+    </div>
+    <div class="shoe-display">
+      <img src="/images/Shoe1.png" class="shoe-image">
+      <p class="shoe-name">Nike Air Force 1</p>
+      <p class="price"> $100</p>
+      <p class="seller"> Listed by: name</p>
+    </div>
+  </div>
 </body>
 
 </html>

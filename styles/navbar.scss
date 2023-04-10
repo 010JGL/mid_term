@@ -1,0 +1,71 @@
+.navbar {
+  display: flex;
+  position: fixed;
+  top: 0;
+  height: 120px;
+  width: 100%;
+  padding: 0 1.5em;
+  color: #FFFFFF;
+  align-items: center;
+  justify-content: space-between;
+  background: #5757986e;
+}
+
+.logo {
+  width: 316px;
+  height:auto
+}
+
+.login {
+  display: inline-block;
+  background-color: #4CAF50;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s;
+}
+
+.login:hover {
+  background-color: #3e8e41;
+}
+
+.register {
+  display: inline-block;
+  background-color: #2196F3;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s;
+}
+
+.register:hover {
+  background-color: #0b7dda;
+}
+
+.search {
+  display: inline-block;
+  background-color: white;
+  color: #5dbb63;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s;
+}
+
+.search:hover {
+  background-color: #0b7dda;
+}
