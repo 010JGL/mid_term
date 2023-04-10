@@ -130,7 +130,7 @@ const addToFavorites = (shoe_id) => {
 
   const newFav = [shoe_id];
   return pool
-    .query(`UPDATE favorites WHERE user_id = users.id SET list = newFav`, newFav)
+    .query(`INSERT //////// favorites WHERE user_id = users.id SET list = newFav`, newFav)
     .then((result) => {
       console.log('result:', result);
       return result.rows;
