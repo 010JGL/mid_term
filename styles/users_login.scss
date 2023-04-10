@@ -1,0 +1,25 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: larger;
+  width: 100%;
+}
+
+.login {
+  display: flex;
+  justify-content: end;
+}
+
+.email {
+  border: none;
+  background-color: aqua;
+}

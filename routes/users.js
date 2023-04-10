@@ -34,8 +34,8 @@ router.post('/logout', (req, res) => {
   res.render('listings_index');
 });
 
-router.get('/favourites', (req, res) => {
-  res.render('user_favourites');
+router.get('/favorites', (req, res) => {
+  res.render('user_favorites');
 });
 
 router.get('/my_listings', (req, res) => {

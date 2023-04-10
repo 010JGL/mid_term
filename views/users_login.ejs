@@ -4,11 +4,49 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/styles/users_login.css" />
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" />
+
+  <!-- Bootstrap CSS -->
+  <!-- <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+    crossorigin="anonymous"/> -->
+
   <title>LOGIN</title>
 </head>
 <body>
-  <h1>Login</h1>
+  <h3>Login</h3>
   <!--login form here-->
-  <h3>Don't have an account yet?</h3> <!-- link to sign up page-->
+
+  <form  action="/login" method="POST" name="login">
+    <div style="width: 20em;">
+      <div class="form-group">
+        <label for="email">E-mail:</label>
+        <input
+          style="width: 100%"
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Please enter your email">
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input
+          style="width: 100%"
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Please enter your password">
+
+        </div>
+      <button type="submit" class="btn btn-primary">Login</button>
+    </div>
+  </form>
+
+  <div>Don't have an account yet?</div> <!-- link to sign up page-->
 </body>
 </html>
