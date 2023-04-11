@@ -23,6 +23,9 @@ router.get('/login', (req, res) => {
 
 router.post('/login', (req, res) => {
 
+  const email = req.body.email;
+  const password = req.body.password;
+
   database.getUsers().then(data => {
     console.log(data)
   res.render('listings_index');
