@@ -17,9 +17,11 @@ router.get('/new', (req, res) => {
 
 router.post('/new', (req, res) => {
   //redirect to listing upon submission
-  console.log('req.params.id', req.params.id);
+  console.log('req.session.userId', req.session.userId);
   console.log('req.body', req.body);
+  const currentUser = req.session.userId;
   const newEntry = req.body;
+  // not sure if i can just transfert the whole info or seperate yet
   const setGender = newEntry.gender;
   const setPrice = newEntry.price;
   const setBrand = newEntry.brand;
@@ -48,4 +50,4 @@ router.post('/sold', (req, res) => {
   //mark item sold, redirect to where?
 });
 
-module.exports = { router };
+module.exports =  router;
