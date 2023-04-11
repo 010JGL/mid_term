@@ -33,8 +33,12 @@
       <button class="search" type="submit">Search</button>
     </div>
     <div class="right-nav">
-      <button class="login" href="/login">Login</button>
-      <button class="register" href="/register">Register</button>
+      <form action="/users/login" method=""GET>
+        <button class="login" href="/login">Login</button>
+      </form>
+      <form action="/users/sign_up">
+        <button class="register" href="/sign_up">Sign Up</button>
+      </form>
     </div>
   </nav>
   <!--info on page-->
