@@ -30,10 +30,10 @@ const getAllTheListings = () => {
     });
 };
 
-// Get the featured     set to random limit 5 -We should modify limit amount to what looks best with the interface
+// Get the featured     set to random limit 6 -We should modify limit amount to what looks best with the interface
 const getFeatured = () => {
   return pool
-    .query(`SELECT * FROM shoes ORDER BY RANDOM() LIMIT 5;`)
+    .query(`SELECT * FROM shoes ORDER BY RANDOM() LIMIT 6;`)
     .then((result) => {
       console.log('result:', result);
       return result.rows;
@@ -49,7 +49,8 @@ const addToFavorites = (userId, shoeId) => {
   const loggedUser = userId;
   const newFav = [shoeId];
 
-  pool.query(`SELECT shoes_id FROM favorites WHERE favorites.user_id = $1;`, [loggedUser])
+  pool
+    .query(`SELECT shoes_id FROM favorites WHERE favorites.user_id = $1;`, [loggedUser])
     .then((result) => {
       console.log('result.rows', result.rows);
       if (result.rows !== newFav) {
@@ -64,11 +65,11 @@ const addToFavorites = (userId, shoeId) => {
             return null;
           });
       }
-      pool
-        .catch((err) => {
-          console.log('These shoes are already in favorites!', err.message);
-          return null;
-        });
+    });
+  pool
+    .catch((err) => {
+      console.log('These shoes are already in favorites!', err.message);
+      return null;
     });
 };
 //addToFavorites(1, 3);
@@ -165,23 +166,38 @@ const showMessagesForListing = (userId, shoeId) => {
   const currentUser = userId;
   //const currentShoes = shoeId;   NOT USING IT FOR NOW
   return pool
-    .query(`SELECT role FROM users WHERE users.id = $1;`, [currentUser])
+    .query(`SELECT shoes.id, messages.message, messages.date, users.name FROM messages JOIN shoes ON shoe_id = shoes.id JOIN users ON sender_id = users.id WHERE users.id = $1 OR receiver_id = $1 ORDER BY date;`, [currentUser])
+
     .then((result) => {
       console.log('result:', result);
-      if (result.rows === 'admin') {
-        // show admin/seller side logic
-        pool
-          .query(`SELECT shoes.id, messages.message, messages.date, users.name FROM messages JOIN shoes ON shoe_id = shoes.id JOIN users ON sender_id = users.id WHERE users.id = $1 OR receiver_id = $1 ORDER BY date;`, [currentUser]);
-      } else {
-        // show user/buyer side logic
-       pool
-        .query(`SELECT shoes.id, messages.message, messages.date, users.name FROM messages JOIN shoes ON shoe_id = shoes.id JOIN users ON receiver_id = users.id WHERE users.id = $1 OR sender_id = $1 ORDER BY date;`, [currentUser]);
-      }
+      return result.rows;
     })
     .catch((err) => {
       console.log('add user error;', err.message);
       return null;
     });
+
+
+  // return pool
+  //   .query(`SELECT role FROM users WHERE users.id = $1;`, [currentUser])
+  //   .then((result) => {
+  //     console.log('result:', result);
+  //     if (result.rows === 'admin') {
+  //       // show admin/seller side logic
+  //       pool
+  //         .query(`SELECT shoes.id, messages.message, messages.date, users.name FROM messages JOIN shoes ON shoe_id = shoes.id JOIN users ON sender_id = users.id WHERE users.id = $1 OR receiver_id = $1 ORDER BY date;`, [currentUser]);
+
+  //     } else {
+  //       // show user/buyer side logic
+  //      pool
+  //       .query(`SELECT shoes.id, messages.message, messages.date, users.name FROM messages JOIN shoes ON shoe_id = shoes.id JOIN users ON receiver_id = users.id WHERE users.id = $1 OR sender_id = $1 ORDER BY date;`, [currentUser]);
+
+  //     }
+  //   })
+  //   .catch((err) => {
+  //     console.log('add user error;', err.message);
+  //     return null;
+  //   });
 
 };
 
@@ -217,7 +233,7 @@ const addUser = (user) => {
     });
 };
 
-// Mark the item as sold
+//Mark the item as sold
 const markSold = (id) => {
   const shoeId = [id];
   return pool
