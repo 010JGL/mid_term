@@ -71,7 +71,7 @@ const addToFavorites = (userId, shoeId) => {
         });
     });
 };
-addToFavorites(1, 3);
+//addToFavorites(1, 3);
 
 
 // Get favorites with user ID          SELECT ALL FAV for a user ID
