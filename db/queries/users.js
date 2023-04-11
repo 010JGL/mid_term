@@ -249,8 +249,21 @@ const removeListing = (shoeId) => {
     });
 };
 
+const searchBySize = (shoeSize) => {
+  const wantedSize = shoeSize;
+  return pool
+  .query(`SELECT * FROM shoes WHERE seller_id = $1;`, [wantedSize])
+  .then((result) => {
+    console.log('result:', result);
+    return result.rows;
+  })
+  .catch((err) => {
+    console.log('add user error;', err.message);
+    return null;
+  });
+};
 
-module.exports = { getAllTheListings, getFeatured, getFavoritesWithId, getOurListings, filterByAsc, filterByDesc, showMessagesForListing, addListing, addUser, markSold, addToFavorites, removeListing, writeMessage };
+module.exports = { getAllTheListings, getFeatured, getFavoritesWithId, getOurListings, filterByAsc, filterByDesc, showMessagesForListing, addListing, addUser, markSold, addToFavorites, removeListing, writeMessage, searchBySize };
 
 
 ////// This was already in the folder /////
