@@ -25,7 +25,6 @@ const findUserByEmail = (email) => {
   return pool
   .query(`SELECT * FROM users WHERE users.email = $1`, [userEmail])
   .then((result) => {
-    console.log('result:', result);
     return result.rows;
   })
   .catch((err) => {
@@ -44,12 +43,8 @@ const getUsers = () => {
     });
 };
 
-<<<<<<< HEAD
-module.exports = { getUsers, getAllTheListings, getFeatured, getFavoritesWithId, getOurListings, filterByAsc, filterByDesc, showMessagesForListing, addListing, addUser, markSold, addToFavorites, removeListing };
-=======
 
 module.exports = {  addUser, findUserByEmail };
->>>>>>> master
 
 
 ////// This was already in the folder /////
