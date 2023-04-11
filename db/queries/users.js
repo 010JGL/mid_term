@@ -16,9 +16,30 @@ const addUser = (user) => {
     });
 };
 
+// find user by email
+
+const findUserByEmail = (email) => {
+  const userEmail = email;
+  //const usersDatabase = database;
+
+  return pool
+  .query(`SELECT * FROM users WHERE users.email = $1`, [userEmail])
+  .then((result) => {
+    console.log('result:', result);
+    return result.rows;
+  })
+  .catch((err) => {
+    console.log('add user error;', err.message);
+    return null;
+  });
+};
 
 
-module.exports = {  addUser };
+// log in func
+
+
+
+module.exports = {  addUser, findUserByEmail };
 
 
 ////// This was already in the folder /////
