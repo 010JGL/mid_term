@@ -17,14 +17,22 @@ router.get('/new', (req, res) => {
 
 router.post('/new', (req, res) => {
   //redirect to listing upon submission
-  const userId = req.user_id;
+  console.log('req.params.id', req.params.id);
   console.log('req.body', req.body);
-  console.log('req.params', req.params);
-  if (!userId) {
-    const box = `<div>You have to be logged in</div>`;
-    return res.status(400).send(box);
-  }
-  addListing(userId)
+  const newEntry = req.body;
+  const setGender = newEntry.gender;
+  const setPrice = newEntry.price;
+  const setBrand = newEntry.brand;
+  const setSize = newEntry.size;
+  const setUrl = newEntry.url;
+  const setDescription = newEntry.description;
+
+  addListing(newEntry, )
+
+  // if (!userId) {
+  //   const box = `<div>You have to be logged in</div>`;
+  //   return res.status(400).send(box);
+  // }
   res.redirect('/my_listings');
 });
 
