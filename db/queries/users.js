@@ -161,7 +161,6 @@ const writeMessage = (shoeId, senderId, receiverId) => {
 // show the messages (should show messages associated with the shoe_id / dont just show all the messages in one place)
 // When you click my listings, you can see your items. If you click on an item you should see messages associated with it
 
-// if we are admin we see seller side if we are user we see user side?
 const showMessagesForListing = (userId, shoeId) => {
   const currentUser = userId;
   //const currentShoes = shoeId;   NOT USING IT FOR NOW
@@ -170,12 +169,13 @@ const showMessagesForListing = (userId, shoeId) => {
     .then((result) => {
       console.log('result:', result);
       if (result.rows === 'admin') {
-        // show seller side logic
+        // show admin/seller side logic
         pool
-          .query(`SELECT * FROM messages JOIN users ON sender_id = users.id WHERE users.id = $1 ORDER BY date;`, [currentUser]);
+          .query(`SELECT shoes.id, messages.message, messages.date, users.name FROM messages JOIN shoes ON shoe_id = shoes.id JOIN users ON sender_id = users.id WHERE users.id = $1 OR receiver_id = $1 ORDER BY date;`, [currentUser]);
       } else {
-        // show user side logic
-        //
+        // show user/buyer side logic
+       pool
+        .query(`SELECT shoes.id, messages.message, messages.date, users.name FROM messages JOIN shoes ON shoe_id = shoes.id JOIN users ON receiver_id = users.id WHERE users.id = $1 OR sender_id = $1 ORDER BY date;`, [currentUser]);
       }
     })
     .catch((err) => {
