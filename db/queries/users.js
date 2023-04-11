@@ -25,7 +25,6 @@ const findUserByEmail = (email) => {
   return pool
   .query(`SELECT * FROM users WHERE users.email = $1`, [userEmail])
   .then((result) => {
-    console.log('result:', result);
     return result.rows;
   })
   .catch((err) => {
@@ -38,17 +37,10 @@ const findUserByEmail = (email) => {
 // log in func
 
 
-
 module.exports = {  addUser, findUserByEmail };
 
 
 ////// This was already in the folder /////
 
-// const getUsers = () => {
-//   return db.query('SELECT * FROM users;')
-//     .then(data => {
-//       return data.rows;
-//     });
-// };
 
 // module.exports = { getUsers };

@@ -40,8 +40,12 @@ router.get('/:id', (req, res) => {
   res.render('listings_id');
 });
 
-router.post('/favourite', (req, res) => {
+router.post('/favorite', (req, res) => {
   //redirect to listing or user favourites?
 });
 
-module.exports = router;
+router.post('/sold', (req, res) => {
+  //mark item sold, redirect to where?
+});
+
+module.exports = { router };
