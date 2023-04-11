@@ -43,6 +43,7 @@ const getFeatured = () => {
     });
 };
 
+console.log(getFeatured())
 // add to favorite         like this im overwriting the list with the new shoe, we want to push data to the existing list
 const addToFavorites = (id, shoe_id) => {
   const loggedUser = id;
