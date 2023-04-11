@@ -1,9 +1,6 @@
-const db = require('../connection');
-const users = require('../connection');
-const shoes = require('../connection');
-const favorites = ('../connection');
-// might have to import ou tables
+const { pool } = require('./pool.js');
 
+<<<<<<< HEAD
 const { Pool } = require('pg');
 const pool = new Pool({
   user: 'labber',
@@ -217,6 +214,8 @@ const addListing = (shoe, sellerId) => {
       return null;
     });
 };
+=======
+>>>>>>> feature/functions
 
 // Create a new user
 const addUser = (user) => {
@@ -233,40 +232,36 @@ const addUser = (user) => {
     });
 };
 
+<<<<<<< HEAD
 //Mark the item as sold
 const markSold = (id) => {
   const shoeId = [id];
+=======
+// find user by email
+
+const findUserByEmail = (email) => {
+  const userEmail = email;
+  //const usersDatabase = database;
+
+>>>>>>> feature/functions
   return pool
-    .query(`UPDATE shoes SET is_sold = true WHERE id = $1;`, [shoeId])
-    .then((result) => {
-      console.log('result:', result);
-      return result.rows;
-    })
-    .catch((err) => {
-      console.log('add user error;', err.message);
-      return null;
-    });
+  .query(`SELECT * FROM users WHERE users.email = $1`, [userEmail])
+  .then((result) => {
+    console.log('result:', result);
+    return result.rows;
+  })
+  .catch((err) => {
+    console.log('add user error;', err.message);
+    return null;
+  });
 };
 
 
-
-//remove items from the site
-const removeListing = (shoeId) => {
-  const shoeToRemove = shoeId;
-  return pool
-    .query(`DELETE FROM shoes WHERE shoes.id = $1`, [shoeToRemove])
-    .then((result) => {
-      console.log('result:', result);
-      return result.rows;
-    })
-    .catch((err) => {
-      console.log('add user error;', err.message);
-      return null;
-    });
-};
+// log in func
 
 
-module.exports = { getAllTheListings, getFeatured, getFavoritesWithId, getOurListings, filterByAsc, filterByDesc, showMessagesForListing, addListing, addUser, markSold, addToFavorites, removeListing, writeMessage };
+
+module.exports = {  addUser, findUserByEmail };
 
 
 ////// This was already in the folder /////
