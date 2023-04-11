@@ -7,21 +7,18 @@
 
 const express = require('express');
 const router  = express.Router();
-//const legitUser = require('../queries/getUsers'); have to make getUsers
+//const bcrypt = require("bcrypt");
 const userQueries = require('../db/queries/users');
 
-
-//This was already in the file as an example. It would retreive all users. Not sure if we need to have it for our site.
-
-// router.get('/', (req, res) => {
-//   res.render('users');
-// });
-
 router.get('/login', (req, res) => {
+  if(req.session.userId){
+    return res.send('You\'re already logged in!');
+  }
   res.render('users_login');
 });
 
 router.post('/login', (req, res) => {
+
 
   const email = req.body.email;
   const password = req.body.password;
@@ -37,23 +34,41 @@ router.post('/login', (req, res) => {
       return res.send('Error: Your password is incorrect!');
     }
 
-  res.render('listings_index');
+    req.session.userId = data[0].id;
+
+    res.send({
+      user: {
+        id: data[0].id,
+        name: data[0].name,
+        email: email,
+        password: password,
+        role: data[0].role
+      }
+    });
+
+    res.render('listings_index');
   });
 });
 
 router.get('/sign_up', (req, res) => {
-  // database.getAllTheListings().then(data =>{
-  //   console.log(data)
+  if(req.session.userId){
+    return res.send('You\'re already logged in!');
+  }
     res.render('users_sign_up');
-  // })
 });
 
 router.post('/sign_up', (req, res) => {
-  //console.log(req.params);
+
+  const email = req.body.email;
+  const password = req.body.password;
+
+  userQueries.addUser
   res.render('listings_index');
 });
 
 router.post('/logout', (req, res) => {
+  req.session.userId = null;
+  res.send({});
   res.render('listings_index');
 });
 

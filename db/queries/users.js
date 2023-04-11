@@ -36,13 +36,6 @@ const findUserByEmail = (email) => {
 
 // log in func
 
-const getUsers = () => {
-  return db.query('SELECT * FROM users;')
-    .then(data => {
-      return data.rows;
-    });
-};
-
 
 module.exports = {  addUser, findUserByEmail };
 
