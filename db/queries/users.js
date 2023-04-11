@@ -160,7 +160,7 @@ const writeMessage = (shoeId, senderId, receiverId) => {
 
 // show the messages (should show messages associated with the shoe_id / dont just show all the messages in one place)
 // When you click my listings, you can see your items. If you click on an item you should see messages associated with it
-
+//SHOULD BE CAHNGE FOR SPECIFIC ID
 const showMessagesForListing = (userId, shoeId) => {
   const currentUser = userId;
   //const currentShoes = shoeId;   NOT USING IT FOR NOW
