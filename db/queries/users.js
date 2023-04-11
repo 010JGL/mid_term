@@ -240,17 +240,17 @@ const removeListing = (shoe_id) => {
     });
 };
 
+const getUsers = () => {
+  return db.query('SELECT * FROM users;')
+    .then(data => {
+      return data.rows;
+    });
+};
 
-module.exports = { getAllTheListings, getFeatured, getFavoritesWithId, getOurListings, filterByAsc, filterByDesc, showMessagesForListing, addListing, addUser, markSold, addToFavorites, removeListing };
+module.exports = { getUsers, getAllTheListings, getFeatured, getFavoritesWithId, getOurListings, filterByAsc, filterByDesc, showMessagesForListing, addListing, addUser, markSold, addToFavorites, removeListing };
 
 
 ////// This was already in the folder /////
 
-// const getUsers = () => {
-//   return db.query('SELECT * FROM users;')
-//     .then(data => {
-//       return data.rows;
-//     });
-// };
 
 // module.exports = { getUsers };

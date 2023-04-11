@@ -7,6 +7,9 @@
 
 const express = require('express');
 const router  = express.Router();
+//const legitUser = require('../queries/getUsers'); have to make getUsers
+const database = require('../db/queries/users');
+
 
 //This was already in the file as an example. It would retreive all users. Not sure if we need to have it for our site.
 
@@ -19,14 +22,22 @@ router.get('/login', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
+
+  database.getUsers().then(data => {
+    console.log(data)
   res.render('listings_index');
+  })
 });
 
 router.get('/sign_up', (req, res) => {
-  res.render('users_sign_up');
+  database.getAllTheListings().then(data =>{
+    console.log(data)
+    res.render('users_sign_up');
+  })
 });
 
 router.post('/sign_up', (req, res) => {
+  //console.log(req.params);
   res.render('listings_index');
 });
 

@@ -8,7 +8,32 @@
 </head>
 <body>
   <h1>Sign Up</h1>
-  <!-- Sign up form-->
+  <h3>Please enter your e-mail and a password to sign up</h3>
+      <form method="POST" action="/users/sign_up">
+        <div style="width: 20em;">
+          <div class="form-group">
+          <label for="email">E-mail:</label>
+          <input
+            style="width: 100%"
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Please enter your email">
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input
+            style="width: 100%"
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Please enter your password">
+
+          </div>
+
+          <input type="submit" class="btn btn-primary" value="Sign Up" />
+        </div>
+      </form>
   <h3>Already Have an Account?</h3> <!-- link to login page if user has account -->
 
 </body>
