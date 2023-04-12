@@ -1,9 +1,23 @@
 const express = require('express');
-const { addListing, getAllTheListings, getFeatured, removeListing } = require('../db/queries/shoes');
+const { addListing, getAllTheListings, getFeatured, removeListing, getOurListings } = require('../db/queries/shoes');
 const { pool } = require('../db/queries/pool');
 const router = express.Router();
+const { getFavoritesWithId } = require('../db/queries/favorites');
+// MOST SPECIFIC TO LESS SPECIFIC
 
 // have to list all the shoes
+router.get('/favorite', (req, res) => {
+
+  const currentUser = req.session.userId;
+  //console.log('req.session.userId:', req.session.userId)
+  getFavoritesWithId(currentUser)
+  .then(data => {
+    const templateVars = { data };
+    //console.log('data',data);
+    res.render('user_favorites', templateVars);
+  })
+});
+
 router.get('/', (req, res) => {
 
   // getFeatured()
@@ -38,13 +52,6 @@ router.post('/new', (req, res) => {
   console.log('req.body', req.body);
   const currentUser = req.session.userId;
   const newEntry = req.body;
-  // not sure if i can just transfert the whole info or seperate yet
-  const setGender = newEntry.gender;
-  const setPrice = newEntry.price;
-  const setBrand = newEntry.brand;
-  const setSize = newEntry.size;
-  const setUrl = newEntry.image_url;
-  const setDescription = newEntry.description;
 
   addListing(newEntry, currentUser)
 
@@ -56,8 +63,10 @@ router.post('/new', (req, res) => {
 // });
 
 router.post('/favorite', (req, res) => {
-  //redirect to listing or user favourites?
+
+
 });
+
 
 router.post('/sold', (req, res) => {
   res.render('my_listings')
@@ -73,11 +82,29 @@ router.post('/delete/:shoe_id', (req,res) => {
 })
 
 router.get('/my_listings', (req, res) => {
-  const tempvar = {
-    
-   }
-  res.render('my_listings', tempvar);
+  const currentUser = req.session.userId;
+  //console.log('req.session.userId', req.session.userId)
+  getOurListings(currentUser)
+  .then(result => {
+    const templateVars = { result };
+    console.log('templateVars', templateVars)
+    res.render('my_listings', templateVars);
+  } )
 });
 
+// router.post('/my_listings', (req, res) => {
+//   const currentUser = req.session.userId;
+//   //console.log('req.session.userId', req.session.userId)
+//   getOurListings(currentUser)
+//   .then(result => {
+//     const templateVars = { data: result };
+//     console.log('templateVars', templateVars)
+//     res.render('my_listings', templateVars);
+//   } )
+// });
 
 module.exports = router;
+
+
+
+

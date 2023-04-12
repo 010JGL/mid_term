@@ -42,6 +42,7 @@ const listingsRoutes = require('./routes/listings');
 const messagesRoutes = require('./routes/messages');
 const { getAllTheListings, getFeatured } = require('./db/queries/shoes');
 
+
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
