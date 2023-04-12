@@ -10,27 +10,26 @@
   <link rel="stylesheet" href="/vendor/border-box.css" />
 
   <!-- Bootstrap CSS -->
-  <!-- <link
+  <link
     rel="stylesheet"
     href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-    crossorigin="anonymous"/> -->
+    crossorigin="anonymous"/>
+
 
   <title>LOGIN</title>
 </head>
 <body>
-  <h3>Login</h3>
+  <h1>Login</h1>
+  <h3>Please enter your e-mail and password to login</h3>
   <!--login form here-->
 
-  <form  action="/login" method="POST" name="login">
+  <form  action="/users/login" method="POST" name="login">
     <div style="width: 20em;">
       <div class="form-group">
         <label for="email">E-mail:</label>
         <input
-          style="width: 100%"
-          type="email"
-          name="email"
-          id="email"
+          style="width: 100%" type="email" name="email" id="email"
           placeholder="Please enter your email">
         </div>
         <div class="form-group">
@@ -47,6 +46,10 @@
     </div>
   </form>
 
-  <div>Don't have an account yet?</div> <!-- link to sign up page-->
+  <div>
+    <form action="/users/sign_up" methord="GET">
+      <button>Don't have an account yet?</button>
+    </form>
+  </div> <!-- link to sign up page-->
 </body>
 </html>

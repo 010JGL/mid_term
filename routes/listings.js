@@ -13,7 +13,6 @@ router.get('/new', (req, res) => {
 
 
 router.post('/new', (req, res) => {
-  //redirect to listing upon submission
   res.redirect('/:id');
 });
 
@@ -21,8 +20,16 @@ router.get('/:id', (req, res) => {
   res.render('listings_id');
 });
 
-router.post('/favourite', (req, res) => {
+router.post('/favorite', (req, res) => {
   //redirect to listing or user favourites?
 });
+
+router.post('/sold', (req, res) => {
+  //mark item sold, redirect to where?
+});
+
+router.post('/delete', (req,res) => {
+  res.render('my_listings')
+})
 
 module.exports = router;
