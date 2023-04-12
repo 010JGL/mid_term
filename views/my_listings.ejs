@@ -23,6 +23,7 @@
       </tr>
     </thead>
     <tbody>
+      <% for (let listing  listings) {%>
       <tr class="listed-container">
         <td></td>
         <td></td>
@@ -30,6 +31,7 @@
         <td><form method="POST" action="sold route here"><button type="submit" class="btn btn-outline-success">Sold</button></form></td>
         <td><form method="POST" action="delete route here"><button type="submit" class="btn btn-outline-danger">Delete</button></form></td>
       </tr>
+      <% } %>
     </tbody>
   </table>
 </body>

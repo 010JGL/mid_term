@@ -19,7 +19,6 @@ router.get('/', (req, res) => {
   res.render('index');
 });
 
-
 //will need if statements to make sure user is loggedin in and has admin priveleges for these two routes
 
 router.get('/new', (req, res) => {
@@ -74,8 +73,10 @@ router.post('/delete/:shoe_id', (req,res) => {
 })
 
 router.get('/my_listings', (req, res) => {
-  
-  res.render('my_listings');
+  const tempvar = {
+    
+   }
+  res.render('my_listings', tempvar);
 });
 
 
