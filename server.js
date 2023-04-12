@@ -40,6 +40,7 @@ const widgetApiRoutes = require('./routes/widgets-api');
 const usersRoutes = require('./routes/users');
 const listingsRoutes = require('./routes/listings');
 const messagesRoutes = require('./routes/messages');
+const { getAllTheListings } = require('./db/queries/shoes');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -57,7 +58,14 @@ app.use('/messages', messagesRoutes);
 // Separate them into separate routes files (see above).
 
 app.get('/', (req, res) => {
-  res.render('index');
+  //console.log(getAllTheListings());
+  getAllTheListings()
+  .then(data => {
+    const templateVars = { data }
+    //console.log('data',data);
+
+    res.render('index', templateVars);
+  })
 });
 
 app.listen(PORT, () => {

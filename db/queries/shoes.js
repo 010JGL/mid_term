@@ -5,7 +5,7 @@ const getAllTheListings = () => {
   return pool
     .query(`SELECT * FROM shoes;`)
     .then((result) => {
-      console.log('result:', result);
+      //console.log('result:', result);
       return result.rows;
     })
     .catch((err) => {

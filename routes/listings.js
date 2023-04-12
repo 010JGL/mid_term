@@ -6,16 +6,16 @@ const router = express.Router();
 // have to list all the shoes
 router.get('/', (req, res) => {
 
-  getFeatured()
+  // getFeatured()
 
-  pool
-  getAllTheListings()
-  .then((shoes) => res.send({ shoes }))
+  // pool
+  // getAllTheListings()
+  // .then((shoes) => res.send({ shoes }))
 
-  .catch((e) => {
-    console.error(e);
-    res.send(e);
-  });
+  // .catch((e) => {
+  //   console.error(e);
+  //   res.send(e);
+  // });
   res.render('index');
 });
 
