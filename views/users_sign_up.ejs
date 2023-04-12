@@ -24,6 +24,15 @@
       <form method="POST" action="/users/sign_up">
         <div style="width: 20em;">
           <div class="form-group">
+            <label for="name">Username:</label>
+            <input
+              style="width: 100%"
+              type="name"
+              name="name"
+              id="name"
+              placeholder="Please enter your Username">
+          </div>
+          <div class="form-group">
           <label for="email">E-mail:</label>
           <input
             style="width: 100%"
@@ -40,9 +49,16 @@
             name="password"
             id="password"
             placeholder="Please enter your password">
-
           </div>
-
+          <div class="form-group">
+            <label for="admin">Admin:</label>
+            <input
+              style="width: 100%"
+              type="admin"
+              name="admin"
+              id="admin"
+              placeholder="Enter admin if you'd like to sell">
+          </div>
           <input type="submit" class="btn btn-primary" value="Sign Up" />
         </div>
       </form>
