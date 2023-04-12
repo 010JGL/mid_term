@@ -4,10 +4,10 @@ const { pool } = require('./pool.js');
 // Create a new user
 const addUser = (user) => {
   const values = [user.name, user.email, user.password, user.role];
+  console.log(values);
   return pool
-    .query(`INSERT INTO users (name, email, password, role) VALUES ($1, $2, $3, 4$) RETURNING *;`, values)
+    .query(`INSERT INTO users (name, email, password, role) VALUES ($1, $2, $3, $4) RETURNING *;`, values)
     .then((result) => {
-      console.log('result:', result);
       return result.rows;
     })
     .catch((err) => {
@@ -38,9 +38,5 @@ const findUserByEmail = (email) => {
 
 
 module.exports = {  addUser, findUserByEmail };
-
-
-////// This was already in the folder /////
-
 
 // module.exports = { getUsers };
