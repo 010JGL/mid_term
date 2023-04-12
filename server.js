@@ -40,6 +40,7 @@ const widgetApiRoutes = require('./routes/widgets-api');
 const usersRoutes = require('./routes/users');
 const listingsRoutes = require('./routes/listings');
 const messagesRoutes = require('./routes/messages');
+const { getAllTheListings, getFeatured } = require('./db/queries/shoes');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -57,7 +58,19 @@ app.use('/messages', messagesRoutes);
 // Separate them into separate routes files (see above).
 
 app.get('/', (req, res) => {
-  res.render('index');
+  //console.log(getAllTheListings());
+  getFeatured()
+  .then(featuredData => {
+    const templateVars = { featuredData }
+
+    getAllTheListings()
+    .then(data => {
+      templateVars['data'] = data;
+      //console.log('data',data);
+      res.render('index', templateVars);
+    })
+  })
+
 });
 
 app.listen(PORT, () => {

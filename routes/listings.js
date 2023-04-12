@@ -1,10 +1,24 @@
 const express = require('express');
-const { addListing } = require('../db/queries/shoes');
+const { addListing, getAllTheListings, getFeatured } = require('../db/queries/shoes');
+const { pool } = require('../db/queries/pool');
 const router = express.Router();
 
+// have to list all the shoes
 router.get('/', (req, res) => {
-  res.render('listings_index');
+
+  // getFeatured()
+
+  // pool
+  // getAllTheListings()
+  // .then((shoes) => res.send({ shoes }))
+
+  // .catch((e) => {
+  //   console.error(e);
+  //   res.send(e);
+  // });
+  res.render('index');
 });
+
 
 //will need if statements to make sure user is loggedin in and has admin priveleges for these two routes
 
@@ -16,6 +30,10 @@ router.get('/new', (req, res) => {
 
 
 router.post('/new', (req, res) => {
+  // if (!userId) {
+  //   const box = `<div>You have to be logged in</div>`;
+  //   return res.status(400).send(box);
+  // }
   //redirect to listing upon submission
   console.log('req.session.userId', req.session.userId);
   console.log('req.body', req.body);
@@ -26,16 +44,12 @@ router.post('/new', (req, res) => {
   const setPrice = newEntry.price;
   const setBrand = newEntry.brand;
   const setSize = newEntry.size;
-  const setUrl = newEntry.url;
+  const setUrl = newEntry.image_url;
   const setDescription = newEntry.description;
 
-  addListing(newEntry, )
+  addListing(newEntry, currentUser)
 
-  // if (!userId) {
-  //   const box = `<div>You have to be logged in</div>`;
-  //   return res.status(400).send(box);
-  // }
-  res.redirect('/my_listings');
+  res.render('my_listings');
 });
 
 router.get('/:id', (req, res) => {
