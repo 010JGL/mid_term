@@ -23,8 +23,6 @@ router.post('/login', (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
 
-  console.log(email, password);
-
   userQueries.findUserByEmail(email).then(data => {
     if (!data[0]) {
       return res.send('Error: That e-mail is not in our database! Please sign up first.');
@@ -52,18 +50,31 @@ router.post('/login', (req, res) => {
 
 router.get('/sign_up', (req, res) => {
   if(req.session.userId){
-    return res.send('You\'re already logged in!');
+    return res.send('Error: You\'re already logged in!');
   }
     res.render('users_sign_up');
 });
 
 router.post('/sign_up', (req, res) => {
+  user = {
+    name: req.body.name,
+    email: req.body.email,
+    password: req.body.password,
+    role: req.body.admin
+  }
 
-  const email = req.body.email;
-  const password = req.body.password;
+  userQueries.findUserByEmail(user.email).then(data => {
+    if (data[0]) {
+      return res.send('Error: That e-mail is not in our database! Please sign up first.');
+    }
+  });
 
-  userQueries.addUser
-  res.render('listings_index');
+  userQueries.addUser(user).then(data => {
+
+    req.session.userId = data[0].id;
+    res.render('index');
+  });
+
 });
 
 router.post('/logout', (req, res) => {

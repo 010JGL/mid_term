@@ -23,10 +23,76 @@
 
 
 <body>
-  <%- include('header') %>
-    <!--info on page-->
-    <h1 class="featured-title">Featured Shoes</h1>
-    <div class="featured">
+  <!-- Top of page-->
+  <nav class="navbar">
+    <img src="images/logo.png" class="logo">
+    <div class="left-nav">
+      <a class="home" href="/">Home</a>
+      <a class="listings" href="/">Listings</a>
+      <!-- <input type="search" name="q" placeholder="Search for shoes" autocomplete="off" spellcheck="false"
+        autocorrect="off" autocapitalize="off" data-testid="site-search" title="Search..." aria-label="Search..."
+        id="site-search" class="chakra-input css-1hwpd2w" value="">
+      <button class="search" type="submit">Search</button> -->
+    </div>
+    <div class="right-nav">
+      <form action="/users/login" method=""GET>
+        <button class="login" href="/login">Login</button>
+      </form>
+      <form action="/users/sign_up">
+        <button class="register" href="/sign_up">Sign Up</button>
+      </form>
+    </div>
+  </nav>
+  <!--info on page-->
+  <h1 class="featured-title">Featured Shoes</h1>
+  <div class="featured">
+    <div class="shoe-display">
+      <img src="/images/Shoe1.png" class="shoe-image">
+      <p class="shoe-name">Nike Air Force 1</p>
+      <p class="price"> $100</p>
+      <p class="seller"> Listed by: name</p>
+      <i class="fa-regular fa-star"></i>
+    </div>
+    <div class="shoe-display">
+      <img src="/images/Shoe1.png" class="shoe-image">
+      <p class="shoe-name">Nike Air Force 1</p>
+      <p class="price"> $100</p>
+      <p class="seller"> Listed by: name</p>
+      <i class="fa-regular fa-star"></i>
+    </div>
+    <div class="shoe-display">
+      <img src="/images/Shoe1.png" class="shoe-image">
+      <p class="shoe-name">Nike Air Force 1</p>
+      <p class="price"> $100</p>
+      <p class="seller"> Listed by: name</p>
+      <i class="fa-regular fa-star"></i>
+    </div>
+    <div class="shoe-display">
+      <img src="/images/Shoe1.png" class="shoe-image">
+      <p class="shoe-name">Nike Air Force 1</p>
+      <p class="price"> $100</p>
+      <p class="seller"> Listed by: name</p>
+      <i class="fa-regular fa-star"></i>
+    </div>
+    <div class="shoe-display">
+      <img src="/images/Shoe1.png" class="shoe-image">
+      <p class="shoe-name">Nike Air Force 1</p>
+      <p class="price"> $100</p>
+      <p class="seller"> Listed by: name</p>
+      <i class="fa-regular fa-star"></i>
+    </div>
+    <div class="shoe-display">
+      <img src="/images/Shoe1.png" class="shoe-image">
+      <p class="shoe-name">Nike Air Force 1</p>
+      <p class="price"> $100</p>
+      <p class="seller"> Listed by: name</p>
+      <i class="fa-regular fa-star"></i>
+    </div>
+  </div>
+  <h1>All Shoes</h1>
+  <div class="shoe-container">
+    <button onclick="" class="sort-button">Sort by Price</button>
+    <div class="listed-shoes">
       <div class="shoe-display">
         <img src="/images/Shoe1.png" class="shoe-image">
         <p class="shoe-name">Nike Air Force 1</p>
