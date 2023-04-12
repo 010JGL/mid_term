@@ -1,6 +1,5 @@
 const express = require('express');
-const { addListing, getAllTheListings } = require('../db/queries/shoes');
-const { getFavoritesWithId } = require('../db/queries/favorites');
+const { addListing, getAllTheListings, getFeatured, removeListing } = require('../db/queries/shoes');
 const { pool } = require('../db/queries/pool');
 const router = express.Router();
 // MOST SPECIFIC TO LESS SPECIFIC
@@ -61,6 +60,9 @@ router.post('/new', (req, res) => {
   res.render('my_listings');
 });
 
+// router.get('/:id', (req, res) => {
+//   res.render('listings_id');
+// });
 
 router.post('/favorite', (req, res) => {
 
@@ -69,11 +71,22 @@ router.post('/favorite', (req, res) => {
 
 
 router.post('/sold', (req, res) => {
-  //mark item sold, redirect to where?
+  res.render('my_listings')
 });
 
-router.get('/:id', (req, res) => {
-  console.log('problem error', req.params)
-  res.render('listings_id');
+router.post('/delete/:shoe_id', (req,res) => {
+  const {shoe_id} = req.params
+  removeListing(shoe_id)
+  .then(result => {
+    console.log("_________", shoe_id, result)
+    res.render('my_listings')
+  })
+})
+
+router.get('/my_listings', (req, res) => {
+
+  res.render('my_listings');
 });
-module.exports =  router;
+
+
+module.exports = router;

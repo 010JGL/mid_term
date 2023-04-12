@@ -35,8 +35,12 @@ const findUserByEmail = (email) => {
 
 
 // log in func
+// const users = await db.query('SELECT * FROM users');
+// res.render('header', { users: users });
 
 
 module.exports = {  addUser, findUserByEmail };
+
+
 
 // module.exports = { getUsers };

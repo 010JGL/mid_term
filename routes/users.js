@@ -32,8 +32,18 @@ router.post('/login', (req, res) => {
       return res.send('Error: Your password is incorrect!');
     }
     req.session.userId = data[0].id;
-    res.redirect('/');
-        // redirect absolute vs render is relative path
+
+    res.send({
+      user: {
+        id: data[0].id,
+        name: data[0].name,
+        email: email,
+        password: password,
+        role: data[0].role
+      }
+    });
+
+    res.render('listings_index');
   });
 });
 

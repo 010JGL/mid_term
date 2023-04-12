@@ -14,6 +14,8 @@
   <link rel="stylesheet" href="/styles/layout.css" />
   <link rel="stylesheet" href="/styles/navbar.css" />
   <link rel="stylesheet" href="/styles/featured.css" />
+  <link rel="stylesheet" href="/styles/listed-shoes.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
@@ -22,25 +24,7 @@
 
 <body>
   <!-- Top of page-->
-  <nav class="navbar">
-    <img src="images/logo.png" class="logo">
-    <div class="left-nav">
-      <a class="home" href="/">Home</a>
-      <a class="listings" href="/">Listings</a>
-      <!-- <input type="search" name="q" placeholder="Search for shoes" autocomplete="off" spellcheck="false"
-        autocorrect="off" autocapitalize="off" data-testid="site-search" title="Search..." aria-label="Search..."
-        id="site-search" class="chakra-input css-1hwpd2w" value="">
-      <button class="search" type="submit">Search</button> -->
-    </div>
-    <div class="right-nav">
-      <form action="/users/login" method=""GET>
-        <button class="login" href="/login">Login</button>
-      </form>
-      <form action="/users/sign_up">
-        <button class="register" href="/sign_up">Sign Up</button>
-      </form>
-    </div>
-  </nav>
+  <%- include('header') %>
   <!--info on page-->
   <h1 class="featured-title">Featured Shoes</h1>
   <div class="featured">
