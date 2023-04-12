@@ -33,17 +33,7 @@ router.post('/login', (req, res) => {
     }
     req.session.userId = data[0].id;
 
-    res.send({
-      user: {
-        id: data[0].id,
-        name: data[0].name,
-        email: email,
-        password: password,
-        role: data[0].role
-      }
-    });
-
-    res.render('listings_index');
+    res.redirect('/');
   });
 });
 
@@ -83,7 +73,8 @@ router.post('/logout', (req, res) => {
 });
 
 router.get('/favorites', (req, res) => {
-  res.render('user_favorites');
+
+  res.redirect('user_favorites');
 });
 
 router.get('/my_listings', (req, res) => {

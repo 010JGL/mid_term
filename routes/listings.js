@@ -2,20 +2,19 @@ const express = require('express');
 const { addListing, getAllTheListings, getFeatured, removeListing } = require('../db/queries/shoes');
 const { pool } = require('../db/queries/pool');
 const router = express.Router();
+const { getFavoritesWithId } = require('../db/queries/favorites');
 // MOST SPECIFIC TO LESS SPECIFIC
 
 // have to list all the shoes
 router.get('/favorite', (req, res) => {
 
   const currentUser = req.session.userId;
-  console.log('req.session.userId:', req.session.userId)
+  //console.log('req.session.userId:', req.session.userId)
   getFavoritesWithId(currentUser)
   .then(data => {
     const templateVars = { data };
     //console.log('data',data);
     res.render('user_favorites', templateVars);
-
-
   })
 });
 
