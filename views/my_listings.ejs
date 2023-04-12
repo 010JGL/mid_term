@@ -5,11 +5,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/styles/my_listings.scss" />
   <title>My Listings</title>
 </head>
 
 <body>
-  <h1>List of users posts</h1>
+  <h1>All Posts</h1>
   <table class="table">
     <thead>
       <tr>
@@ -21,11 +23,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr class="listed-container">
         <td></td>
         <td></td>
         <td></td>
-        <td><form method="POST" action="sold route here"><button type="submit" class="btn btn-success">Sold</button></form></td>
+        <td><form method="POST" action="sold route here"><button type="submit" class="btn btn-outline-success">Sold</button></form></td>
         <td><form method="POST" action="delete route here"><button type="submit" class="btn btn-outline-danger">Delete</button></form></td>
       </tr>
     </tbody>

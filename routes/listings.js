@@ -1,5 +1,5 @@
 const express = require('express');
-const { addListing, getAllTheListings, getFeatured } = require('../db/queries/shoes');
+const { addListing, getAllTheListings, getFeatured, removeListing } = require('../db/queries/shoes');
 const { pool } = require('../db/queries/pool');
 const router = express.Router();
 
@@ -52,20 +52,31 @@ router.post('/new', (req, res) => {
   res.render('my_listings');
 });
 
-router.get('/:id', (req, res) => {
-  res.render('listings_id');
-});
+// router.get('/:id', (req, res) => {
+//   res.render('listings_id');
+// });
 
 router.post('/favorite', (req, res) => {
   //redirect to listing or user favourites?
 });
 
 router.post('/sold', (req, res) => {
-  //mark item sold, redirect to where?
+  res.render('my_listings')
 });
 
-router.post('/delete', (req,res) => {
-  res.render('my_listings')
+router.post('/delete/:shoe_id', (req,res) => {
+  const {shoe_id} = req.params
+  removeListing(shoe_id)
+  .then(result => {
+    console.log("_________", shoe_id, result)
+    res.render('my_listings')
+  })
 })
+
+router.get('/my_listings', (req, res) => {
+  
+  res.render('my_listings');
+});
+
 
 module.exports = router;

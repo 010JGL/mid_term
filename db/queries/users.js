@@ -41,8 +41,6 @@ const findUserByEmail = (email) => {
 
 module.exports = {  addUser, findUserByEmail };
 
-// log in func
-
 
 
 // module.exports = { getUsers };

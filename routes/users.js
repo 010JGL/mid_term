@@ -86,9 +86,4 @@ router.post('/logout', (req, res) => {
 router.get('/favorites', (req, res) => {
   res.render('user_favorites');
 });
-
-router.get('/my_listings', (req, res) => {
-  res.render('my_listings');
-});
-
 module.exports = router;
