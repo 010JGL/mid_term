@@ -1,5 +1,5 @@
 const express = require('express');
-const { addListing, getAllTheListings, getFeatured, removeListing } = require('../db/queries/shoes');
+const { addListing, getAllTheListings, getFeatured, removeListing, getOurListings } = require('../db/queries/shoes');
 const { pool } = require('../db/queries/pool');
 const router = express.Router();
 const { getFavoritesWithId } = require('../db/queries/favorites');
@@ -83,9 +83,29 @@ router.post('/delete/:shoe_id', (req,res) => {
 })
 
 router.get('/my_listings', (req, res) => {
-
-  res.render('my_listings');
+  const currentUser = req.session.userId;
+  //console.log('req.session.userId', req.session.userId)
+  getOurListings(currentUser)
+  .then(result => {
+    const templateVars = { result };
+    console.log('templateVars', templateVars)
+    res.render('my_listings', templateVars);
+  } )
 });
 
+// router.post('/my_listings', (req, res) => {
+//   const currentUser = req.session.userId;
+//   //console.log('req.session.userId', req.session.userId)
+//   getOurListings(currentUser)
+//   .then(result => {
+//     const templateVars = { data: result };
+//     console.log('templateVars', templateVars)
+//     res.render('my_listings', templateVars);
+//   } )
+// });
 
 module.exports = router;
+
+
+
+
