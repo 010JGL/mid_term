@@ -1,9 +1,25 @@
 const express = require('express');
-const { addListing, getAllTheListings, getFeatured } = require('../db/queries/shoes');
+const { addListing, getAllTheListings } = require('../db/queries/shoes');
+const { getFavoritesWithId } = require('../db/queries/favorites');
 const { pool } = require('../db/queries/pool');
 const router = express.Router();
+// MOST SPECIFIC TO LESS SPECIFIC
 
 // have to list all the shoes
+router.get('/favorite', (req, res) => {
+
+  const currentUser = req.session.userId;
+  console.log('req.session.userId:', req.session.userId)
+  getFavoritesWithId(currentUser)
+  .then(data => {
+    const templateVars = { data };
+    //console.log('data',data);
+    res.render('user_favorites', templateVars);
+
+
+  })
+});
+
 router.get('/', (req, res) => {
 
   // getFeatured()
@@ -39,29 +55,25 @@ router.post('/new', (req, res) => {
   console.log('req.body', req.body);
   const currentUser = req.session.userId;
   const newEntry = req.body;
-  // not sure if i can just transfert the whole info or seperate yet
-  const setGender = newEntry.gender;
-  const setPrice = newEntry.price;
-  const setBrand = newEntry.brand;
-  const setSize = newEntry.size;
-  const setUrl = newEntry.image_url;
-  const setDescription = newEntry.description;
 
   addListing(newEntry, currentUser)
 
   res.render('my_listings');
 });
 
-router.get('/:id', (req, res) => {
-  res.render('listings_id');
-});
 
 router.post('/favorite', (req, res) => {
-  //redirect to listing or user favourites?
+
+
 });
+
 
 router.post('/sold', (req, res) => {
   //mark item sold, redirect to where?
 });
 
+router.get('/:id', (req, res) => {
+  console.log('problem error', req.params)
+  res.render('listings_id');
+});
 module.exports =  router;

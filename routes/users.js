@@ -17,8 +17,8 @@ router.get('/login', (req, res) => {
   res.render('users_login');
 });
 
-router.post('/login', (req, res) => {
 
+router.post('/login', (req, res) => {
 
   const email = req.body.email;
   const password = req.body.password;
@@ -31,10 +31,9 @@ router.post('/login', (req, res) => {
     if (password != data[0].password) {
       return res.send('Error: Your password is incorrect!');
     }
-
     req.session.userId = data[0].id;
-
-    res.render('index');
+    res.redirect('/');
+        // redirect absolute vs render is relative path
   });
 });
 
@@ -62,7 +61,7 @@ router.post('/sign_up', (req, res) => {
   userQueries.addUser(user).then(data => {
 
     req.session.userId = data[0].id;
-    res.render('index');
+    res.redirect('/');
   });
 
 });
@@ -81,4 +80,12 @@ router.get('/my_listings', (req, res) => {
   res.render('my_listings');
 });
 
+
 module.exports = router;
+
+
+
+
+
+
+
