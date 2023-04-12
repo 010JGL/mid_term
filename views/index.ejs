@@ -29,18 +29,22 @@
     <div class="left-nav">
       <a class="home" href="/">Home</a>
       <a class="listings" href="/">Listings</a>
-      <input type="search" name="q" placeholder="Search for shoes" autocomplete="off" spellcheck="false"
+      <!-- <input type="search" name="q" placeholder="Search for shoes" autocomplete="off" spellcheck="false"
         autocorrect="off" autocapitalize="off" data-testid="site-search" title="Search..." aria-label="Search..."
         id="site-search" class="chakra-input css-1hwpd2w" value="">
-      <button class="search" type="submit">Search</button>
+      <button class="search" type="submit">Search</button> -->
     </div>
     <div class="right-nav">
-      <button class="login" href="/login">Login</button>
-      <button class="register" href="/register">Register</button>
+      <form action="/users/login" method=""GET>
+        <button class="login" href="/login">Login</button>
+      </form>
+      <form action="/users/sign_up">
+        <button class="register" href="/sign_up">Sign Up</button>
+      </form>
     </div>
   </nav>
   <!--info on page-->
-  <h1>Featured Shoes</h1>
+  <h1 class="featured-title">Featured Shoes</h1>
   <div class="featured">
     <div class="shoe-display">
       <img src="/images/Shoe1.png" class="shoe-image">
@@ -147,6 +151,139 @@
       </div>
     </div>
   </div>
+  <div class="listing">
+    <% for (let i of data) {  %>
+      <div class="row1">
+        <img src="/images/<%= i.image_url %>" class="shoe-image">
+
+        <p class="shoe-name"><%= i.brand %></p>
+      <p class="price"><%= i.price %></p>
+      <p class="size"><%= i.size %></p>
+      </div>
+      <% } %>
+  </div>
+  <!-- <div class="listing">
+    <div class="row1">
+      <img src="https://m.media-amazon.com/images/I/71oWGH1bTHL._AC_UY575_.jpg" class="shoe-image">
+      <p class="shoe-name">Nike Air Force 1</p>
+      <p class="price"> $100</p>
+      <p class="seller"> Listed by: name</p>
+    </div>
+    <div class="row1">
+      <img src="/pics/adidas 2.jpg" class="shoe-image">
+      <p class="shoe-name">Nike Air Force 1</p>
+      <p class="price"> $100</p>
+      <p class="seller"> Listed by: name</p>
+    </div>
+    <div class="row1">
+      <img src="pics/air jordan.png" class="shoe-image">
+      <p class="shoe-name">Nike Air Force 1</p>
+      <p class="price"> $100</p>
+      <p class="seller"> Listed by: name</p>
+    </div>
+    <div class="row1">
+      <img src="/images/Shoe1.png" class="shoe-image">
+      <p class="shoe-name">Nike Air Force 1</p>
+      <p class="price"> $100</p>
+      <p class="seller"> Listed by: name</p>
+    </div>
+    <div class="row1">
+      <img src="/images/Shoe1.png" class="shoe-image">
+      <p class="shoe-name">Nike Air Force 1</p>
+      <p class="price"> $100</p>
+      <p class="seller"> Listed by: name</p>
+    </div>
+    <div class="row2">
+      <img src="/images/Shoe1.png" class="shoe-image">
+      <p class="shoe-name">Nike Air Force 1</p>
+      <p class="price"> $100</p>
+      <p class="seller"> Listed by: name</p>
+    </div>
+    <div class="row2">
+      <img src="/images/Shoe1.png" class="shoe-image">
+      <p class="shoe-name">Nike Air Force 1</p>
+      <p class="price"> $100</p>
+      <p class="seller"> Listed by: name</p>
+    </div>
+    <div class="row2">
+      <img src="/images/Shoe1.png" class="shoe-image">
+      <p class="shoe-name">Nike Air Force 1</p>
+      <p class="price"> $100</p>
+      <p class="seller"> Listed by: name</p>
+    </div>
+    <div class="row2">
+      <img src="/images/Shoe1.png" class="shoe-image">
+      <p class="shoe-name">Nike Air Force 1</p>
+      <p class="price"> $100</p>
+      <p class="seller"> Listed by: name</p>
+    </div>
+    <div class="row2">
+      <img src="/images/Shoe1.png" class="shoe-image">
+      <p class="shoe-name">Nike Air Force 1</p>
+      <p class="price"> $100</p>
+      <p class="seller"> Listed by: name</p>
+    </div>
+    <div class="row3">
+      <img src="/images/Shoe1.png" class="shoe-image">
+      <p class="shoe-name">Nike Air Force 1</p>
+      <p class="price"> $100</p>
+      <p class="seller"> Listed by: name</p>
+    </div>
+    <div class="row3">
+      <img src="/images/Shoe1.png" class="shoe-image">
+      <p class="shoe-name">Nike Air Force 1</p>
+      <p class="price"> $100</p>
+      <p class="seller"> Listed by: name</p>
+    </div>
+    <div class="row3">
+      <img src="/images/Shoe1.png" class="shoe-image">
+      <p class="shoe-name">Nike Air Force 1</p>
+      <p class="price"> $100</p>
+      <p class="seller"> Listed by: name</p>
+    </div>
+    <div class="row3">
+      <img src="/images/Shoe1.png" class="shoe-image">
+      <p class="shoe-name">Nike Air Force 1</p>
+      <p class="price"> $100</p>
+      <p class="seller"> Listed by: name</p>
+    </div>
+    <div class="row3">
+      <img src="/images/Shoe1.png" class="shoe-image">
+      <p class="shoe-name">Nike Air Force 1</p>
+      <p class="price"> $100</p>
+      <p class="seller"> Listed by: name</p>
+    </div>
+    <div class="row4">
+      <img src="/images/Shoe1.png" class="shoe-image">
+      <p class="shoe-name">Nike Air Force 1</p>
+      <p class="price"> $100</p>
+      <p class="seller"> Listed by: name</p>
+    </div>
+    <div class="row4">
+      <img src="/images/Shoe1.png" class="shoe-image">
+      <p class="shoe-name">Nike Air Force 1</p>
+      <p class="price"> $100</p>
+      <p class="seller"> Listed by: name</p>
+    </div>
+    <div class="row4">
+      <img src="/images/Shoe1.png" class="shoe-image">
+      <p class="shoe-name">Nike Air Force 1</p>
+      <p class="price"> $100</p>
+      <p class="seller"> Listed by: name</p>
+    </div>
+    <div class="row4">
+      <img src="/images/Shoe1.png" class="shoe-image">
+      <p class="shoe-name">Nike Air Force 1</p>
+      <p class="price"> $100</p>
+      <p class="seller"> Listed by: name</p>
+    </div>
+    <div class="row4">
+      <img src="/images/Shoe1.png" class="shoe-image">
+      <p class="shoe-name">Nike Air Force 1</p>
+      <p class="price"> $100</p>
+      <p class="seller"> Listed by: name</p>
+    </div>
+  </div> -->
 </body>
 
 </html>

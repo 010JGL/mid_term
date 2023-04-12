@@ -4,12 +4,69 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/styles/users_login.css" />
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" />
+
+  <!-- Bootstrap CSS -->
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+    crossorigin="anonymous"/>
+
   <title>Sign Up</title>
 </head>
 <body>
   <h1>Sign Up</h1>
-  <!-- Sign up form-->
-  <h3>Already Have an Account?</h3> <!-- link to login page if user has account -->
+  <h3>Please enter your e-mail and a password to sign up</h3>
+      <form method="POST" action="/users/sign_up">
+        <div style="width: 20em;">
+          <div class="form-group">
+            <label for="name">Username:</label>
+            <input
+              style="width: 100%"
+              type="name"
+              name="name"
+              id="name"
+              placeholder="Please enter your Username">
+          </div>
+          <div class="form-group">
+          <label for="email">E-mail:</label>
+          <input
+            style="width: 100%"
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Please enter your email">
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input
+            style="width: 100%"
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Please enter your password">
+          </div>
+          <div class="form-group">
+            <label for="admin">Admin:</label>
+            <input
+              style="width: 100%"
+              type="admin"
+              name="admin"
+              id="admin"
+              placeholder="Enter admin if you'd like to sell">
+          </div>
+          <input type="submit" class="btn btn-primary" value="Sign Up" />
+        </div>
+      </form>
+  <div>
+    <form action="/users/login" methord="GET">
+      <button>Already Have an Account?</button>
+    </form>
+  </div> <!-- link to login page if user has account -->
 
 </body>
 </html>

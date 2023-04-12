@@ -4,18 +4,23 @@
   width: 141px;
   height: 100%;
   position: relative;
-  margin-right: 0px;
+  margin-right: 5px;
   display: flex;
   flex-direction: column;
-}
 
+}
+.featured-title {
+  margin-top: 150px;
+}
 .featured {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 5px;
   list-style-type: none;
   overflow: auto;
+  margin-top: 50px;
 }
+
 
 .price {
   display: flex;
