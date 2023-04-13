@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="/styles/featured.css" />
   <link rel="stylesheet" href="/styles/listed-shoes.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/styles/messages.css" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
@@ -20,13 +21,13 @@
 </head>
 <body>
   <%- include('header') %>
-  <h1>List of all a users messages</h1>
+
   <div class="messages">
-    <% for (let i of result) {  %>
+    <% for (let i of result.reverse()) {  %>
       <div class="row3">
-      <p class="message">Message: <%= i.message %></p>
-      <p class="date">Date: <%= i.date %></p>
-      <p class="name">Name: <%= i.name %></p>
+        <p class="name">Name: <%= i.name %></p>
+        <p class="message">Message: <%= i.message %></p>
+        <p class="date">Date: <%= i.date %></p>
       </div>
       <% } %>
   </div>

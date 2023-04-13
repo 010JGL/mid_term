@@ -1,37 +1,39 @@
 const { pool } = require('./pool.js')
 
 
-// const getShoeWithId = (id) => {
-//   const shoeID = '2'
-//   return pool
-//   .query(`SELECT * FROM shoes WHERE shoes.id = $1;` [shoeID])
-//   .then((result) => {
-//     console.log('result:', result);
-//     return result.rows;
-//   })
-//   .catch((err) => {
-//     console.log('add user error;', err.message);
-//     return null;
-//   });
-// }
+const getSellerIdwithShoeId = (id) => {
+  const shoeId = id;
+  console.log('shoeId', shoeId)
+  return pool
+  .query(`SELECT shoes.seller_id FROM shoes WHERE shoes.id = $1;`, [shoeId])
+  .then((result) => {
+    console.log('result:', result);
+    return result.rows[0];
+  })
+  .catch((err) => {
+    console.log('Cannot get the seller_id;', err.message);
+    return null;
+  });
+}
 //Write a message to a user with a shoe_id
 // how to get timestamp
-const writeMessage = (shoeId, senderId, receiverId) => {
+const writeMessage = (shoeId, message, senderId, receiverId) => {
   //gotta import shoeId from a func
   const currentShoe = shoeId;
   const sender = senderId; // current user
   const receiver = receiverId;
-  const content = 'message content';
-  const timestamp = transaction_timestamp();
+  const content = message;
+  const timestamp = Date.now();
+  console.log('timestamp', timestamp);
 
   return pool
-    .query(`INSERT INTO messages (shoe_id, message, date, sender_id, receiver_id) VALUES ($1, $2, $3, $4, $5);`[currentShoe, content, timestamp, sender, receiver])
+    .query(`INSERT INTO messages (shoe_id, message, date, sender_id, receiver_id) VALUES ($1, $2, to_timestamp($3), $4, $5) RETURNING *;`, [currentShoe, content, (timestamp / 1000.0), sender, receiver])
     .then((result) => {
       console.log('result:', result);
-      return result.rows;
+      return result.rows[0];
     })
     .catch((err) => {
-      console.log('add user error;', err.message);
+      console.log('Add message error;', err.message);
       return null;
     });
 };
@@ -82,4 +84,4 @@ const showMessagesForItem = (userId, shoeId) => {
     });
 };
 
-module.exports = { writeMessage, showMessagesForItem }
+module.exports = { writeMessage, showMessagesForItem, getSellerIdwithShoeId }
