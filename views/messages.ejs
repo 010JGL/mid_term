@@ -23,11 +23,11 @@
   <%- include('partials/_header') %>
 
   <div class="messages">
-    <% for (let i of result) {  %>
+    <% for (let i of result.reverse()) {  %>
       <div class="row3">
-      <p class="message">Message: <%= i.message %></p>
-      <p class="date">Date: <%= i.date %></p>
-      <p class="name">Name: <%= i.name %></p>
+        <p class="name">Name: <%= i.name %></p>
+        <p class="message">Message: <%= i.message %></p>
+        <p class="date">Date: <%= i.date %></p>
       </div>
       <% } %>
   </div>

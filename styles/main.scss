@@ -4,27 +4,27 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: #F5F5DC;
+  background: #B0D0D3;
 }
 
-.listing {
-  display: flex;
-  justify-content: center;
-  margin: 100px 0px 100px 100px;
-  flex-wrap: wrap;
-}
+// .listing {
+//   display: flex;
+//   justify-content: center;
+//   margin: 100px 0px 100px 100px;
+//   flex-wrap: wrap;
+// }
 
-.row1 {
-  width: 18%;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  border: 3px solid red;
-  margin-right: 5px;
-  margin-left: 5px;
-  margin-top: 5px;
-  margin-bottom: 5px;
+// .row1 {
+//   width: 18%;
+//   padding-top: 30px;
+//   padding-bottom: 30px;
+//   border: 3px solid red;
+//   margin-right: 5px;
+//   margin-left: 5px;
+//   margin-top: 5px;
+//   margin-bottom: 5px;
 
-}
+
 .container {
   overflow: hidden;
 }
