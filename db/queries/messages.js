@@ -67,4 +67,4 @@ const showMessagesForItem = (userId, shoeId) => {
     });
 };
 
-module.exports = { writeMessage, showMessagesForListing, showMessagesForItem }
+module.exports = { writeMessage, showMessagesForItem }
