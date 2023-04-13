@@ -38,6 +38,15 @@
       </div>
       <% } %>
   </div>
+  <div class="filter">
+    <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+    <button class="btn" onclick="filterSelection('ascending')"> Ascending</button>
+    <button class="btn" onclick="filterSelection('descending')"> Descending</button>
+    <div class="container">
+      <div class="filterDiv ascending"></div>
+      <div class="filterDiv descending"></div>
+    </div>
+  </div>
   <div class="listing">
     <% for (let i of data) {  %>
       <div class="row1">
@@ -52,3 +61,4 @@
 </body>
 
 </html>
+

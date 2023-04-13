@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,27 +14,31 @@
   <link rel="stylesheet" href="/styles/featured.css" />
   <link rel="stylesheet" href="/styles/listed-shoes.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/styles/messages.css" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
   <title>New Message</title>
 </head>
+
 <body>
   <%- include('header') %>
-  <h1>Form with text input, listing to reference, submit button</h1>
-  <form action="/messages/new" method="POST" class="new_message_form">
-    <div class="messages">
-      <label for="price">Enter the shoe id: </label>
-      <input type="text" name="shoe-id" id="shoe-id" required>
+    <div class="new-shoe-form">
+      <form action="/messages/new" method="POST" class="new_message_form">
+        <div class="new-shoe">
+          <label for="new-shoe">Enter the shoe id: </label>
+          <input type="text" name="shoe-id" id="shoe-id" required>
+        </div>
+        <div class="new-message">
+          <label for="new-message">Enter your message: </label>
+          <textarea id="new-message" name="new-message" rows="4" cols="50" required></textarea>
+        </div>
+        <div class="new-timestamp">
+          <label for="new-message">Should be a timestamp here </label>
+          <button type="submit" class="btn btn-primary">Send a message </button>
+        </div>
+      </form>
     </div>
-    <div class="messages">
-      <label for="new-message">Enter your message: </label>
-      <textarea id="new-message" name="new-message" rows="4" cols="50" required></textarea>
-    </div>
-    <div class="messages">
-      <label for="new-message">Should be a timestamp here </label>
-    </div>
-    <button type="submit" class="btn btn-primary">Send a message </button>
-  </form>
 </body>
+
 </html>

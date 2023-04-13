@@ -13,5 +13,3 @@ CREATE TABLE shoes (
   description TEXT
 );
 
--- image_url is our thumbnail picture, we only have one for now.
--- We could add more but its stretch

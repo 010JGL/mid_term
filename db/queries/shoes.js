@@ -91,7 +91,7 @@ const addListing = (shoe, sellerId) => {
 
 // Mark the item as sold
 const markSold = (id) => {
-  const shoeId = [id];
+  const shoeId = id;
   return pool
     .query(`UPDATE shoes SET is_sold = true WHERE id = $1;`, [shoeId])
     .then((result) => {

@@ -17,40 +17,43 @@
     <thead>
       <tr>
         <th scope="col">Image</th>
-        <th scope="col">Title</th>
+        <th scope="col">Brand</th>
+        <th scope="col">Price</th>
         <th scope="col">Description</th>
         <th scope="col">Sold?</th>
         <th scope="col">Delete?</th>
       </tr>
     </thead>
     <tbody>
-      <div class="my-listing">
-        <% for (let i of result) { %>
-          <div class="row2">
-            <p class="shoe-brand">
-              <%= i.brand %>
-            </p>
-            <p class="description">
-              <%= i.description %>
-            </p>
-            <p class="prize">Size: <%= i.size %>
-            </p>
-          </div>
-      </div>
-      <tr class="listed-container">
-        <td><img src="/images/<%= i.image_url %>" class="shoe-image"></td>
-        <td></td>
-        <td></td>
-        <td>
-          <form method="POST" action="sold route here"><button type="submit"
-              class="btn btn-outline-success">Sold</button></form>
-        </td>
-        <td>
-          <form method="POST" action="delete route here"><button type="submit"
-              class="btn btn-outline-danger">Delete</button></form>
-        </td>
-      </tr>
-      <% } %>
+      <% for (let i of result) { %>
+        <!-- Size: <%= i.size %> -->
+        <tr class="listed-container">
+          <td><img src="/images/<%= i.image_url %>" class="shoe-image"></td>
+          <td>
+            <%= i.brand %>
+          </td>
+          <td>
+            <%= i.price %>
+          </td>
+          <td>
+            <%= i.description %>
+          </td>
+          <td>
+            <form method="POST" action="/listings/sold/<%= i.id %>">
+              <% if (i.is_sold) { %>
+                <p>sold</p>
+                <%} else {%>
+                  <button type="submit" class="btn btn-outline-success">Sold</button>
+                  <% } %>
+            </form>
+
+          </td>
+          <td>
+            <form method="POST" action="/listings/delete/<%= i.id %>"><button type="submit"
+                class="btn btn-outline-danger">Delete</button></form>
+          </td>
+        </tr>
+        <% } %>
     </tbody>
   </table>
 </body>
