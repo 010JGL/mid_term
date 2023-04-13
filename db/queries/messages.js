@@ -1,9 +1,12 @@
 const { pool } = require('./pool.js')
 
 
+
+
+
 const getSellerIdwithShoeId = (id) => {
   const shoeId = id;
-  console.log('shoeId', shoeId)
+  //console.log('shoeId', shoeId)
   return pool
   .query(`SELECT shoes.seller_id FROM shoes WHERE shoes.id = $1;`, [shoeId])
   .then((result) => {
@@ -37,6 +40,7 @@ const writeMessage = (shoeId, message, senderId, receiverId) => {
       return null;
     });
 };
+
 
 // show the messages (should show messages associated with the shoe_id / dont just show all the messages in one place)
 // When you click my listings, you can see your items. If you click on an item you should see messages associated with it
