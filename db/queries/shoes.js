@@ -76,9 +76,9 @@ const filterByDesc = () => {
 const addListing = (shoe, sellerId) => {
   const currentUser = sellerId;
   const defaultValue = 'false'
-  const values = [shoe.gender, shoe.price, shoe.brand, shoe.size, currentUser, shoe.image_url, defaultValue, shoe.description];
+  const values = [shoe.gender, shoe.price, shoe.brand, shoe.size, currentUser, shoe.image_url, shoe.is_sold, shoe.description];
   return pool
-    .query(`INSERT INTO shoes (gender, price, brand, size, seller_id, image_url, is_sold, description) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *;`, values)
+    .query(`INSERT INTO shoes (gender, price, brand, size, seller_id, image_url, is_sold, description) VALUES ($1, $2, $3, 4$, 5$, 6$, 7$, $8) RETURNING *;`, values)
     .then((result) => {
       console.log('result:', result);
       return result.rows;

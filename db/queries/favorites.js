@@ -30,10 +30,11 @@ const addToFavorites = (userId, shoeId) => {
 
 // Get favorites with user ID          SELECT ALL FAV for a user ID
 const getFavoritesWithId = (id) => {
+
   const loggedUser = id;
   //console.log('loggedUser:', loggedUser);
   return pool
-    .query(`SELECT shoes_id FROM favorites WHERE favorites.user_id = $1;`, [loggedUser])
+    .query(`SELECT * FROM favorites JOIN shoes ON favorites.shoes_id = shoes.id WHERE favorites.user_id = $1;`, [loggedUser])
     .then((result) => {
       console.log('result:', result);
       return result.rows;
@@ -45,3 +46,9 @@ const getFavoritesWithId = (id) => {
 };
 
 module.exports = { addToFavorites, getFavoritesWithId }
+// SELECT shoes_id FROM favorites WHERE favorites.user_id = $1;
+
+// SELECT DISTINCT shoes.* FROM shoes LEFT JOIN favorites ON favorites.user_id = shoes.seller_id WHERE favorites.user_id = '2';
+
+/// SELECT * FROM favorites JOIN shoes ON favorites.shoes_id = shoes.id WHERE favorites.user_id = '2';
+
