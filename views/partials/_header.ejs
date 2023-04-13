@@ -10,14 +10,17 @@
     <button class="search" type="submit">Search</button> -->
   </div>
   <div class="right-nav">
-      <form method="POST" action="/logout">
-        <button class="btn btn-danger" type="submit">Logout</button>
-      </form>
+    <% if (userId == undefined) { %>
     <form action="/users/login" method="" GET>
       <button class="login" href="/login">Login</button>
     </form>
     <form action="/users/sign_up">
       <button class="register" href="/sign_up">Sign Up</button>
     </form>
+    <% } else { %>
+    <form method="POST" action="users/logout">
+      <button class="btn btn-danger" type="submit">Logout</button>
+    </form>
+    <% } %>
   </div>
 </nav>

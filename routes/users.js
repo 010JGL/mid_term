@@ -68,8 +68,7 @@ router.post('/sign_up', (req, res) => {
 
 router.post('/logout', (req, res) => {
   req.session.userId = null;
-  res.send({});
-  res.render('listings_index');
+  res.redirect('/');
 });
 
 router.get('/favorites', (req, res) => {
