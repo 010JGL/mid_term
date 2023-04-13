@@ -4,10 +4,35 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" />
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/navbar.css" />
+  <link rel="stylesheet" href="/styles/featured.css" />
+  <link rel="stylesheet" href="/styles/listed-shoes.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script src="/vendor/jquery-3.0.0.js"></script>
+  <script defer src="/scripts/app.js"></script>
   <title>Messages</title>
 </head>
 <body>
+<<<<<<< HEAD
   <%- include('partials/_header') %>
+=======
+  <%- include('header') %>
+>>>>>>> master
   <h1>List of all a users messages</h1>
+  <div class="messages">
+    <% for (let i of result) {  %>
+      <div class="row3">
+      <p class="message">Message: <%= i.message %></p>
+      <p class="date">Date: <%= i.date %></p>
+      <p class="name">Name: <%= i.name %></p>
+      </div>
+      <% } %>
+  </div>
 </body>
 </html>
