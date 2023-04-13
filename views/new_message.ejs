@@ -23,22 +23,35 @@
 
 <body>
   <%- include('header') %>
+  <h2 class="direct-message">Direct Message Form</h2>
     <div class="new-shoe-form">
       <form action="/messages/new" method="POST" class="new_message_form">
         <div class="new-shoe">
-          <label for="new-shoe">Enter the shoe id: </label>
+          <label for="new-shoe">Enter the shoe id: <br></label>
           <input type="text" name="shoe-id" id="shoe-id" required>
         </div>
         <div class="new-message">
-          <label for="new-message">Enter your message: </label>
+          <label for="new-message">Enter your message: <br></label>
           <textarea id="new-message" name="new-message" rows="4" cols="50" required></textarea>
         </div>
-          <div class="new-timestamp-button">
+        <div class="new-timestamp-button">
           <button type="submit" class="btn btn-primary">Send a message </button>
         </div>
-        </div>
-      </form>
     </div>
+    </form>
+    </div>
+    <h2 class="email-title">Email Contact Form</h2>
+      <div class="new-shoe">
+        <label for="new-shoe">Enter the shoe id: </label>
+        <input type="text" name="shoe-id" id="shoe-id" required>
+      </div>
+    <form action="/messages/email" method="post" enctype="text/plain">
+       Your Name:<br><input type="text" name="your_name"> <br>
+       Your Message:<br><textarea id="new-email" name="new-email" rows="4" cols="50" required></textarea><br>
+       <div class="new-timestamp-button">
+        <button type="submit" class="btn btn-primary">Send an email </button>
+      </div>
+    </form>
 </body>
 
 </html>
