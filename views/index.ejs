@@ -82,22 +82,28 @@
         <% } %>
     </div>
 </body>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <script>
 $(document).ready(function() {
   const $shoes = $('.listed-shoes');
-  const $highToLowButton = $('#sort-high-to-low');
-  const $lowToHighButton = $('#sort-low-to-high');
+  const $highToLow = $('#sort-high-to-low');
+  const $lowToHigh = $('#sort-low-to-high');
 
-  $highToLowButton.click(function() {
+  $highToLow.click(function() {
     $shoes.sort((a, b) => parseFloat($('.price', b).text().slice(2)) - parseFloat($('.price', a).text().slice(2)))
       .appendTo('.listed-container');
   });
 
-  $lowToHighButton.click(function() {
+  $lowToHigh.click(function() {
     $shoes.sort((a, b) => parseFloat($('.price', a).text().slice(2)) - parseFloat($('.price', b).text().slice(2)))
       .appendTo('.listed-container');
   });
+
+  const $favorite = $('#star');
+
+  $favorite.click(function() {
+
+  })
 });
 </script>
 </html>
