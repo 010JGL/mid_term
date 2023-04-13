@@ -20,20 +20,12 @@ router.get('/favorite', (req, res) => {
 
 router.get('/', (req, res) => {
 
-  // getFeatured()
-
-  // pool
-  // getAllTheListings()
-  // .then((shoes) => res.send({ shoes }))
-
-  // .catch((e) => {
-  //   console.error(e);
-  //   res.send(e);
-  // });
-  res.render('index');
+  const templateVars = {
+    userId: req.session.userId,
+  };
+  console.log(templateVars.userId);
+  res.render('index', templateVars);
 });
-
-//will need if statements to make sure user is loggedin in and has admin priveleges for these two routes
 
 router.get('/new', (req, res) => {
 

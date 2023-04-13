@@ -62,7 +62,8 @@ app.get('/', (req, res) => {
   //console.log(getAllTheListings());
   getFeatured()
   .then(featuredData => {
-    const templateVars = { featuredData }
+    const userId = req.session.userId;
+    const templateVars = { featuredData, userId }
 
     getAllTheListings()
     .then(data => {
