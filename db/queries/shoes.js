@@ -19,7 +19,7 @@ const getFeatured = () => {
   return pool
     .query(`SELECT * FROM shoes ORDER BY RANDOM() LIMIT 5;`)
     .then((result) => {
-      console.log('result:', result);
+      //console.log('result:', result);
       return result.rows;
     })
     .catch((err) => {

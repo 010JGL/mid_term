@@ -20,17 +20,10 @@ router.get('/favorite', (req, res) => {
 
 router.get('/', (req, res) => {
 
-  // getFeatured()
-
-  // pool
-  // getAllTheListings()
-  // .then((shoes) => res.send({ shoes }))
-
-  // .catch((e) => {
-  //   console.error(e);
-  //   res.send(e);
-  // });
-  res.render('index');
+  const templateVars = {
+    userId: req.session.userId,
+  };
+  res.render('index', templateVars);
 });
 
 
