@@ -38,10 +38,8 @@ router.post('/login', (req, res) => {
       return res.send('Error: Your password is incorrect!');
     }
     req.session.userId = data[0].id;
-    const templateVars = {
-      userId: req.session.userId,
-    }
-    res.render('index', templateVars);
+
+    return res.redirect('/');
   });
 });
 

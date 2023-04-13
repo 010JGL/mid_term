@@ -23,10 +23,9 @@ router.get('/', (req, res) => {
   const templateVars = {
     userId: req.session.userId,
   };
+  console.log(templateVars.userId);
   res.render('index', templateVars);
 });
-
-//will need if statements to make sure user is loggedin in and has admin priveleges for these two routes
 
 router.get('/new', (req, res) => {
 

@@ -8,16 +8,16 @@
       <button class="search" type="submit">Search</button> -->
     </div>
     <div class="right-nav">
-      <% if (userId == undefined) { %>
+    <% if (!userId) { %>
         <form action="/users/login" method="" GET>
           <button class="login" href="/login">Login</button>
         </form>
         <form action="/users/sign_up">
           <button class="register" href="/sign_up">Sign Up</button>
         </form>
-        <% } else { %>
-          <a class="listings" href="listings/my_listings">My Listings</a>
-          <a class="favourites" href="listings/favorite">Favourited List</a>
+    <% } else { %>
+        <a class="listings" href="listings/my_listings">My Listings</a>
+        <a class="favourites" href="listings/favorite">Favourited List</a>
     <form method="POST" action="users/logout">
       <button class="btn btn-danger" type="submit">Logout</button>
     </form>
