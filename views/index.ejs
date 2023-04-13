@@ -25,38 +25,79 @@
 <body>
   <!-- Top of page-->
   <%- include('header') %>
-  <!--info on page-->
-  <h1 class="featured-title">Featured Shoes</h1>
-  <div class="featured">
-    <% for (let i of featuredData) {  %>
-      <div class="row1">
+    <!--info on page-->
+    <h1 class="featured-title">Featured Shoes</h1>
+    <div class="main-container">
+      <% for (let i of featuredData) { %>
+        <!-- <div class="row1">
         <img src="/images/<%= i.image_url %>" class="shoe-image">
 
         <p class="shoe-name">Brand: <%= i.brand %></p>
       <p class="price">Price: <%= i.price %></p>
       <p class="size">Size: <%= i.size %></p>
-      </div>
-      <% } %>
-  </div>
-  <div class="listing">
-    <% for (let i of data) {  %>
-      <div class="row1">
-        <img src="/images/<%= i.image_url %>" class="shoe-image">
-
-        <p class="shoe-name">Brand: <%= i.brand %></p>
-      <p class="price">Price: <%= i.price %></p>
-      <p class="size">Size: <%= i.size %></p>
-      </div>
-      <% } %>
-  </div>
+      </div> -->
+        <div class="feature-container">
+          <div class="featured">
+            <div class="shoe-display">
+              <img src="/images/<%= i.image_url %>" class="shoe-image">
+              <p class="shoe-name">
+                <%= i.brand %>
+              </p>
+              <p class="price">$ <%= i.price%>
+              </p>
+              <div class="size-and-icon">
+                <div class="size-div">
+                  <p class="size"> Size: <%= i.size %>
+                  </p>
+                </div>
+                <div class="star-div">
+                <i class="fa-solid fa-star" id="star"></i>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% } %>
+    </div>
+    <h1 class="all-shoes">All Shoes</h1>
+    <div class="sort-buttons">
+      <button id="sort-high-to-low">Sort by Price (High to Low)</button>
+      <button id="sort-low-to-high">Sort by Price (Low to High)</button>
+    </div>
+    <div class="listed-container">
+      <% for (let i of data) { %>
+        <div class="listed-shoes">
+          <div class="shoe-display">
+            <img src="/images/<%= i.image_url %>" class="shoe-image">
+            <p class="shoe-name">
+              ID: <%= i.id %> <%= i.brand %>
+            </p>
+            <p class="price">$ <%= i.price %>
+            </p>
+            <p class="size">Size: <%= i.size %>
+            </p>
+            <i class="fa-solid fa-star" id="star"></i>
+          </div>
+        </div>
+        <% } %>
+    </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+  const $shoes = $('.listed-shoes');
+  const $highToLowButton = $('#sort-high-to-low');
+  const $lowToHighButton = $('#sort-low-to-high');
 
+  $highToLowButton.click(function() {
+    $shoes.sort((a, b) => parseFloat($('.price', b).text().slice(2)) - parseFloat($('.price', a).text().slice(2)))
+      .appendTo('.listed-container');
+  });
+
+  $lowToHighButton.click(function() {
+    $shoes.sort((a, b) => parseFloat($('.price', a).text().slice(2)) - parseFloat($('.price', b).text().slice(2)))
+      .appendTo('.listed-container');
+  });
+});
+</script>
 </html>
-
-<div class="featured">
-  <div class="shoe-display">
-    <img src="/images/Shoe1.png" class="shoe-image">
-    <p class="shoe-name"><%= i.brand %></p>
-    <p class="price">$ <%= i.price%></p>
-    <p class="seller"> Listed by: name</p>
-  </div>
