@@ -49,12 +49,12 @@ router.post('/sign_up', (req, res) => {
     name: req.body.name,
     email: req.body.email,
     password: req.body.password,
-    role: req.body.admin
+    role: req.body.role
   }
 
   userQueries.findUserByEmail(user.email).then(data => {
     if (data[0]) {
-      return res.send('Error: That e-mail is not in our database! Please sign up first.');
+      return res.send('Error: That e-mail is already in our database!');
     }
   });
 
