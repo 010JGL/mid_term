@@ -1,13 +1,28 @@
 const { pool } = require('./pool.js')
 
-//Write a message to a user with a shoe_id
 
+// const getShoeWithId = (id) => {
+//   const shoeID = '2'
+//   return pool
+//   .query(`SELECT * FROM shoes WHERE shoes.id = $1;` [shoeID])
+//   .then((result) => {
+//     console.log('result:', result);
+//     return result.rows;
+//   })
+//   .catch((err) => {
+//     console.log('add user error;', err.message);
+//     return null;
+//   });
+// }
+//Write a message to a user with a shoe_id
+// how to get timestamp
 const writeMessage = (shoeId, senderId, receiverId) => {
+  //gotta import shoeId from a func
   const currentShoe = shoeId;
   const sender = senderId; // current user
   const receiver = receiverId;
   const content = 'message content';
-  const timestamp = '2023-04-22 23:11:32';
+  const timestamp = transaction_timestamp();
 
   return pool
     .query(`INSERT INTO messages (shoe_id, message, date, sender_id, receiver_id) VALUES ($1, $2, $3, $4, $5);`[currentShoe, content, timestamp, sender, receiver])

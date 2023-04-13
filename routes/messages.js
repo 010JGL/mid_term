@@ -18,11 +18,18 @@ router.get('/', (req, res) => {
 });
 
 router.get('/new', (req, res) => {
+
   res.render('new_message');
 });
 
+//redirect to listing of item related to message or back to messages?
 router.post('/new', (req, res) => {
-  //redirect to listing of item related to message or back to messages?
+  const currentUser = req.session.userId;
+
+
+  writeMessage(shoeId, currentUser, receiverId)
+
+  res.redirect('messages')
 });
 
 module.exports = router;
