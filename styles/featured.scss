@@ -5,19 +5,24 @@
   border: 3px solid black;
   border-radius: 3px;
   width: 141px;
-  height: 100%;
+  height: 200px;
   position: relative;
   margin-right: 5px;
   display: flex;
   flex-direction: column;
-
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
 }
 .featured-title {
   margin-top: 150px;
 }
+
+.main-container{
+  display:flex
+}
+
 .featured {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
   gap: 5px;
   list-style-type: none;
   overflow: auto;
@@ -32,19 +37,31 @@
 }
 
 .shoe-name {
-  margin-bottom: 4px
+  margin-bottom: 4px;
+  font-size: 14px;
 }
 
 .shoe-image {
   object-fit: contain;
-  max-width: 120px;
+  width: 120px;
+  height: 120px;
 }
 
-.seller {
+.size {
   margin: 0;
   font-size: 10px;
 }
 
 #star {
+  display:flex;
+  justify-content:right;
   color: #4056A1;
+  position: absolute;
+  overflow: hidden;
+  bottom: 5px;
+  right: 6px;
+}
+
+#star:hover {
+  color: gold;
 }

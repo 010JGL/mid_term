@@ -72,7 +72,6 @@ router.post('/sold/:shoe_id', (req, res) =>{
   const {shoe_id} = req.params
   markSold(shoe_id)
   .then(result => {
-    console.log("fdsafdsa:", result)
     res.redirect('/listings/my_listings')
   })
 });
