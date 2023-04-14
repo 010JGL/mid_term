@@ -8,12 +8,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
   <link rel="stylesheet" href="/styles/navbar.css" />
   <link rel="stylesheet" href="/styles/featured.css" />
+  <link rel="stylesheet" href="/styles/listed-shoes.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
@@ -22,14 +25,20 @@
 <body>
   <%- include('partials/_header') %>
   <h1>Show all a users favorite listings</h1>
-  <div class="listing">
-    <% for (let i of data) {  %>
-      <div class="row1">
-        <img src="/images/<%= i.image_url %>" class="shoe-image">
-
-        <p class="shoe-name">Brand: <%= i.brand %></p>
-      <p class="price">Price: <%= i.price %></p>
-      <p class="size">Size: <%= i.size %></p>
+  <div class="listed-container">
+    <% for (let i of data) { %>
+      <div class="listed-shoes">
+        <div class="shoe-display">
+          <img src="/images/<%= i.image_url %>" class="shoe-image" id="image" >
+          <p class="shoe-name">
+            ID: <%= i.id %> <%= i.brand %>
+          </p>
+          <p class="price">$ <%= i.price %>
+          </p>
+          <p class="size">Size: <%= i.size %>
+          </p>
+          <i class="fa-solid fa-star" id="star"></i>
+        </div>
       </div>
       <% } %>
   </div>
