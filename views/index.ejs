@@ -29,13 +29,6 @@
     <h1 class="featured-title">Featured Shoes</h1>
     <div class="main-container">
       <% for (let i of featuredData) { %>
-        <!-- <div class="row1">
-        <img src="/images/<%= i.image_url %>" class="shoe-image">
-
-        <p class="shoe-name">Brand: <%= i.brand %></p>
-      <p class="price">Price: <%= i.price %></p>
-      <p class="size">Size: <%= i.size %></p>
-      </div> -->
         <div class="feature-container">
           <div class="featured">
             <div class="shoe-display">
@@ -98,12 +91,6 @@ $(document).ready(function() {
     $shoes.sort((a, b) => parseFloat($('.price', a).text().slice(2)) - parseFloat($('.price', b).text().slice(2)))
       .appendTo('.listed-container');
   });
-
-  const $favorite = $('#star');
-
-  $favorite.click(function() {
-
-  })
 });
 </script>
 </html>
