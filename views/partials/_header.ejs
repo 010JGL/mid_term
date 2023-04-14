@@ -1,25 +1,31 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200;300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 <nav class="navbar">
   <img src="../images/logo.png" class="logo">
-  <div class="left-nav">
-    <a class="home" href="/">Home</a>
-    <!-- <input type="search" name="q" placeholder="Search for shoes" autocomplete="off" spellcheck="false"
-      autocorrect="off" autocapitalize="off" data-testid="site-search" title="Search..." aria-label="Search..."
-      id="site-search" class="chakra-input css-1hwpd2w" value="">
-      <button class="search" type="submit">Search</button> -->
-    </div>
-    <div class="right-nav">
+  <!-- <a class="home" href="/">Home</a> -->
+  <!-- <input type="search" name="q" placeholder="Search for shoes" autocomplete="off" spellcheck="false"
+    autocorrect="off" autocapitalize="off" data-testid="site-search" title="Search..." aria-label="Search..."
+    id="site-search" class="chakra-input css-1hwpd2w" value="">
+    <button class="search" type="submit">Search</button> -->
     <% if (!userId) { %>
+      <div class="login-options">
         <form action="/users/login" method="GET" >
           <button class="login" href="/login">Login</button>
         </form>
         <form action="/users/sign_up">
           <button class="register" href="/sign_up">Sign Up</button>
         </form>
+      </div>
     <% } else { %>
+      <div class="left-nav">
         <a class="listings" href="/listings/my_listings">My Listings</a>
         <a class="favourites" href="/listings/favorite">Favourited List</a>
+      </div>
+      <div class="right-nav">
         <a class="nav-messages" href="/messages/">My messages</a>
         <a class="nav-new-message" href="/messages/new">Write a message</a>
+      </div>
     <form method="POST" action="/users/logout">
       <button class="btn btn-danger" type="submit">Logout</button>
     </form>

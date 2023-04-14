@@ -2,7 +2,7 @@
 const express = require('express');
 const { showMessagesForItem, writeMessage, getSellerIdwithShoeId, } = require('../db/queries/messages');
 const router  = express.Router();
-const nodemailer = require('nodemailer');
+//const nodemailer = require('nodemailer');
 const { findEmailById } = require('../db/queries/users');
 
 router.get('/', (req, res) => {
