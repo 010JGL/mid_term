@@ -3,6 +3,8 @@ const { addListing, getAllTheListings, getFeatured, removeListing, getOurListing
 const { pool } = require('../db/queries/pool');
 const router = express.Router();
 const { getFavoritesWithId } = require('../db/queries/favorites');
+const { addToFavorites } = require('../db/queries/favorites');
+
 // MOST SPECIFIC TO LESS SPECIFIC
 
 // have to list all the shoes
@@ -13,7 +15,7 @@ router.get('/favorite', (req, res) => {
   getFavoritesWithId(currentUser)
   .then(data => {
     const templateVars = { data, userId: currentUser };
-    //console.log('data',data);
+    console.log('data',data);
     res.render('user_favorites', templateVars);
   })
 });
@@ -90,6 +92,7 @@ router.get('/my_listings', (req, res) => {
   } )
 });
 
+// })
 // router.post('/my_listings', (req, res) => {
 //   const currentUser = req.session.userId;
 //   //console.log('req.session.userId', req.session.userId)
