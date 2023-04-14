@@ -32,13 +32,26 @@ const findUserByEmail = (email) => {
   });
 };
 
+const findEmailById = (id) => {
+  const userId = id;
+
+  return pool
+  .query(`SELECT users.email FROM users WHERE users.id = $1;`, [userId])
+  .then((result) => {
+    return result.rows[0];
+  })
+  .catch((err) => {
+    console.log('add user error;', err.message);
+    return null;
+  });
+};
 
 // log in func
 // const users = await db.query('SELECT * FROM users');
 // res.render('header', { users: users });
 
 
-module.exports = {  addUser, findUserByEmail };
+module.exports = {  addUser, findUserByEmail, findEmailById };
 
 
 

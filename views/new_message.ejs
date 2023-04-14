@@ -23,6 +23,7 @@
 
 <body>
   <%- include('partials/_header') %>
+  <h2 class="direct-message">Direct Message Form</h2>
     <div class="new-shoe-form">
       <form action="/messages/new" method="POST" class="new_message_form">
         <div class="new-shoe">
@@ -39,6 +40,18 @@
         </div>
       </form>
     </div>
+    <h2 class="email-title">Email Contact Form</h2>
+      <div class="new-shoe">
+        <label for="new-shoe">Enter the shoe id: </label>
+        <input type="text" name="shoe-id" id="shoe-id" required>
+      </div>
+    <form action="/messages/email" method="POST">
+       Your Subject:<br><input type="text" name="your_subject"> <br>
+       Your Message:<br><textarea id="new-email" name="new-email" rows="4" cols="50" required></textarea><br>
+       <div class="new-timestamp-button">
+        <button type="submit" class="btn btn-primary">Send an email </button>
+      </div>
+    </form>
 </body>
 
 </html>
