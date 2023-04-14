@@ -30,8 +30,9 @@ router.get('/', (req, res) => {
 });
 
 router.get('/new', (req, res) => {
-
-  res.render('listings_new');
+  const currentUser = req.session.userId;
+  const templateVars = {userId: currentUser}
+  res.render('listings_new', templateVars);
 });
 
 
