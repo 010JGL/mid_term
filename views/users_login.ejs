@@ -5,9 +5,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="/styles/users_login.css" />
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/styles/navbar.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/styles/users_login.css" />
 
   <!-- Bootstrap CSS -->
   <link
@@ -21,7 +24,7 @@
 </head>
 <body>
   <%- include('partials/_header') %>
-  <h1>Login</h1>
+  <!-- <h1>Login</h1> -->
   <h3>Please enter your e-mail and password to login</h3>
   <!--login form here-->
 
@@ -48,7 +51,7 @@
   </form>
 
   <div>
-    <form action="/users/sign_up" methord="GET">
+    <form action="/users/sign_up" method="GET">
       <button>Don't have an account yet?</button>
     </form>
   </div> <!-- link to sign up page-->

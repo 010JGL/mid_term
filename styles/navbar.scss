@@ -20,6 +20,7 @@
 .home{
   text-decoration: none;
   color: black;
+  font-family: "oswald";
   font-size: large;
   font-weight: 600;
 }
@@ -90,3 +91,22 @@
   color: #D3D3D3;
   background-color: #00008b;
 }
+
+.logout {
+  display: inline-block;
+  background: #F7E3AF;
+  color: #00008b;
+  text-align: center;
+  font-size: 24px;
+  font-family: "oswald";
+  cursor: pointer;
+  border: solid;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.logout:hover {
+  color: #D3D3D3;
+  background-color: #00008b;
+}
+
