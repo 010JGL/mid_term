@@ -6,14 +6,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/styles/my_listings.scss" />
+  <link rel="stylesheet" href="/styles/my_listings.css" />
   <link rel="stylesheet" href="/styles/navbar.css" />
   <title>My Listings</title>
 </head>
 
 <body>
-  <%- include('header') %>
-  <h1>All Posts</h1>
+
+  <%- include('partials/_header') %>
+  <h1 class="all-posts">Your Listings</h1>
   <table class="table">
     <thead>
       <tr>
@@ -42,7 +43,7 @@
           <td>
             <form method="POST" action="/listings/sold/<%= i.id %>">
               <% if (i.is_sold) { %>
-                <p>sold</p>
+                <p>Sold!</p>
                 <%} else {%>
                   <button type="submit" class="btn btn-outline-success">Sold</button>
                   <% } %>

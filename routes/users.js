@@ -7,14 +7,20 @@
 
 const express = require('express');
 const router  = express.Router();
-//const bcrypt = require("bcrypt");
 const userQueries = require('../db/queries/users');
+
+//login routes
 
 router.get('/login', (req, res) => {
   if(req.session.userId){
     return res.send('You\'re already logged in!');
   }
-  res.render('users_login');
+
+  const templateVars = {
+    userId: req.session.userId,
+  }
+
+  res.render('users_login', templateVars);
 });
 
 
@@ -33,15 +39,18 @@ router.post('/login', (req, res) => {
     }
     req.session.userId = data[0].id;
 
-    res.redirect('/');
+    return res.redirect('/');
   });
 });
 
 router.get('/sign_up', (req, res) => {
+  const templateVars = {
+    userId: req.session.userId,
+  }
   if(req.session.userId){
     return res.send('Error: You\'re already logged in!');
   }
-    res.render('users_sign_up');
+  res.render('users_sign_up', templateVars);
 });
 
 router.post('/sign_up', (req, res) => {
@@ -68,8 +77,7 @@ router.post('/sign_up', (req, res) => {
 
 router.post('/logout', (req, res) => {
   req.session.userId = null;
-  res.send({});
-  res.render('listings_index');
+  res.redirect('/');
 });
 
 router.get('/favorites', (req, res) => {

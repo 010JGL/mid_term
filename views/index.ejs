@@ -24,7 +24,7 @@
 
 <body>
   <!-- Top of page-->
-  <%- include('header') %>
+  <%- include('partials/_header') %>
     <!--info on page-->
     <h1 class="featured-title">Featured Shoes</h1>
     <div class="main-container">
@@ -68,7 +68,7 @@
       <% for (let i of data) { %>
         <div class="listed-shoes">
           <div class="shoe-display">
-            <img src="/images/<%= i.image_url %>" class="shoe-image">
+            <img src="/images/<%= i.image_url %>" class="shoe-image" id="image" >
             <p class="shoe-name">
               ID: <%= i.id %> <%= i.brand %>
             </p>
