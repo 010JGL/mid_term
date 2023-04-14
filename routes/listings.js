@@ -15,6 +15,7 @@ router.get('/favorite', (req, res) => {
   getFavoritesWithId(currentUser)
   .then(data => {
     const templateVars = { data, userId: currentUser };
+    console.log('data',data);
     res.render('user_favorites', templateVars);
   })
 });
@@ -90,16 +91,7 @@ router.get('/my_listings', (req, res) => {
     res.render('my_listings', templateVars);
   } )
 });
-// $(document).ready(function () {
-// $("form").on("submit", function (event) {    //linking the form, when we click submit, to an event
-//   event.preventDefault()
 
-//   .then(function () {
-//     addToFavorites()
-
-//   });
-
-// });
 // })
 // router.post('/my_listings', (req, res) => {
 //   const currentUser = req.session.userId;
