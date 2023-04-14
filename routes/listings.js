@@ -81,7 +81,10 @@ router.get('/my_listings', (req, res) => {
   //console.log('req.session.userId', req.session.userId)
   getOurListings(currentUser)
   .then(result => {
-    const templateVars = { result };
+    const templateVars = {
+      result,
+      userId: req.session.userId,
+    };
     // console.log('templateVars', templateVars)
     res.render('my_listings', templateVars);
   } )
