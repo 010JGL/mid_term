@@ -29,5 +29,6 @@ VALUES ('male', '100', 'Adidas', '10', '1', 'docs\pics\adidas 1.jpg', 'false', '
 ('male', '100', 'Converse', '12', '3', 'docs\pics\converse 28.png', 'false', 'Classic look. Walk in style.'),
 ('male', '117', 'Converse', '11', '4', 'docs\pics\converse 29.png', 'false', 'New look. Really comfortable.'),
 ('female', '111', 'Converse', '10', '5', 'docs\pics\converse 30.png', 'false', 'Classic look with a nice color'),
-('female', '115', 'Converse', '9', '1', 'docs\pics\converse 31.png', 'false', 'Classic model with a girly touch');
+('female', '115', 'Converse', '9', '1', 'docs\pics\converse 31.png', 'false', 'Classic model with a girly touch'),
+('male', '650', 'Edgerunners', '10', '2', 'docs\pics\alvin 32.png', 'false', 'Alvin special shoes');
 -- not sure how to link images
