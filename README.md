@@ -45,45 +45,11 @@ The following steps are only for _one_ of the group members to perform.
 - PG 6.x
 - Nodemail
 
-##### TO BE REMOVED 
+### Screenshots
 
-## PAGES
-
-// 2 nav bar       one logged / one logged out
-
-// Acess from logged in nav bar    --log out button
-## MAIN PAGE  -- every listings
--- price filter
--- favorite items option (like)
-
-
-## MESSAGE PAGE
--- our messages, received and sent
-## LISTING PAGE
--- our listing  -- add remove feature button
-## POST ITEM PAGE
---create a posting on the site    *only ADMINS can create a post
-
-
-// Acess from logged out nav bar
-## MAIN PAGE -- maybe show the featured only, to see the whole listing we need to be a user
-sign up page
-login page
-
-
-## LISTING/:ID PAGE       STRETCH
---specific page for each item
--- users can send messages to the user that is listing the item
-
-
-## questions
-when admin logs in, can they post items for every users?
-
--- either one admin. or many admins. 
- 
- -- admins can post/delete & mark as sold  any listing
- -- only admins can create/list items
-
-I think we should go many admins, to have many sellers
+!["Homepage"](https://github.com/010JGL/mid_term/blob/master/docs/pics/Screen1.png?raw=true)
+!["My listings"](https://github.com/010JGL/mid_term/blob/master/docs/pics/Screen2.png?raw=true)
+!["Write a message feature"](https://github.com/010JGL/mid_term/blob/master/docs/pics/Screen3.png?raw=true)
+!["Erd"](https://github.com/010JGL/mid_term/blob/master/docs/pics/erd.png?raw=true)
 
 
