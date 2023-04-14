@@ -11,18 +11,26 @@ router.get('/', (req, res) => {
 
   showMessagesForItem(currentUser)
 
-    .then(result => {
-      const templateVars = { result }
-      //console.log('templateVars', templateVars)
-      res.render('messages', templateVars);
-    })
+  .then(result => {
+    const templateVars = { result, userId: currentUser  }
+    //console.log('templateVars', templateVars)
+    res.render('messages', templateVars);
+  })
 
 });
 
 router.get('/new', (req, res) => {
-
-  res.render('new_message');
+  const currentUser = req.session.userId;
+  const templateVars = { userId: currentUser  }
+  res.render('new_message', templateVars);
 });
+
+// router.get('/messages', (req, res) => {
+
+//     res.redirect('/');
+
+// });
+
 
 //redirect to listing of item related to message or back to messages?
 router.post('/new', (req, res) => {

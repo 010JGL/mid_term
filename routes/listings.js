@@ -12,7 +12,7 @@ router.get('/favorite', (req, res) => {
   //console.log('req.session.userId:', req.session.userId)
   getFavoritesWithId(currentUser)
   .then(data => {
-    const templateVars = { data };
+    const templateVars = { data, userId: currentUser };
     //console.log('data',data);
     res.render('user_favorites', templateVars);
   })
@@ -81,7 +81,10 @@ router.get('/my_listings', (req, res) => {
   //console.log('req.session.userId', req.session.userId)
   getOurListings(currentUser)
   .then(result => {
-    const templateVars = { result };
+    const templateVars = {
+      result,
+      userId: req.session.userId,
+    };
     // console.log('templateVars', templateVars)
     res.render('my_listings', templateVars);
   } )
