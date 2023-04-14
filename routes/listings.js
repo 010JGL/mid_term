@@ -15,7 +15,6 @@ router.get('/favorite', (req, res) => {
   getFavoritesWithId(currentUser)
   .then(data => {
     const templateVars = { data, userId: currentUser };
-    //console.log('data',data);
     res.render('user_favorites', templateVars);
   })
 });
