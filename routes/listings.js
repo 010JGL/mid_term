@@ -64,7 +64,7 @@ router.post('/sold/:shoe_id', (req, res) =>{
   const {shoe_id} = req.params
   markSold(shoe_id)
   .then(result => {
-    res.redirect('/listings/my_listings')
+    res.render('/my_listings')
   })
 });
 
@@ -72,7 +72,7 @@ router.post('/delete/:shoe_id', (req,res) => {
   const {shoe_id} = req.params
   removeListing(shoe_id)
   .then(result => {
-    res.redirect('/listings/my_listings')
+    res.redirect('/my_listings')
   })
 })
 

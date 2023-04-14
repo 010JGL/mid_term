@@ -82,7 +82,7 @@ router.post('/logout', (req, res) => {
 
 router.get('/favorites', (req, res) => {
 
-  res.redirect('user_favorites');
+  res.render('user_favorites');
 });
 
 router.get('/my_listings', (req, res) => {
